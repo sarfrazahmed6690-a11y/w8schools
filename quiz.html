@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w8 school - C++ Quiz & Practice</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldBrand: {
+                            DEFAULT: '#04AA6D',
+                            dark: '#038f5a',
+                            light: '#e6f7ef',
+                            darkBg: '#12181b',
+                            cardDark: '#1e252b',
+                            sidebarDark: '#182026'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #04AA6D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #038f5a;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-[#12181b] dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Header Navigation -->
+    <header class="flex-shrink-0 z-50 bg-white dark:bg-[#182026] border-b border-gray-200 dark:border-gray-800 shadow-sm sticky top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-emeraldBrand flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        w8
+                    </div>
+                    <span class="text-2xl font-black tracking-tight text-gray-900 dark:text-white">
+                        w8<span class="text-emeraldBrand">school</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="index.html" class="px-4 py-2 rounded-lg font-medium text-sm hover:bg-emeraldBrand-light dark:hover:bg-gray-800 hover:text-emeraldBrand transition-colors">Home</a>
+                <a href="tutor.html" class="px-4 py-2 rounded-lg font-medium text-sm hover:bg-emeraldBrand-light dark:hover:bg-gray-800 hover:text-emeraldBrand transition-colors">C++ Tutorial</a>
+                <a href="quiz.html" class="px-4 py-2 rounded-lg font-medium text-sm bg-emeraldBrand-light dark:bg-gray-800 text-emeraldBrand transition-colors">C++ Quiz</a>
+                <a href="about.html" class="px-4 py-2 rounded-lg font-medium text-sm hover:bg-emeraldBrand-light dark:hover:bg-gray-800 hover:text-emeraldBrand transition-colors">About Us</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg font-medium text-sm hover:bg-emeraldBrand-light dark:hover:bg-gray-800 hover:text-emeraldBrand transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right Controls -->
+            <div class="flex items-center space-x-3">
+                <button id="themeToggle" onclick="toggleTheme()" class="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" title="Toggle Theme">
+                    <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Page Title & Intro -->
+        <div class="text-center mb-10">
+            <span class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emeraldBrand/10 text-emeraldBrand font-semibold text-xs sm:text-sm mb-3">
+                <i class="fa-solid fa-clipboard-question"></i>
+                <span>Interactive Assessment</span>
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-4">
+                C++ Master Quiz & Exam
+            </h1>
+            <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm sm:text-base">
+                Test your knowledge across 50 expertly crafted C++ questions covering basics, pointers, classes, and the STL. Choose how many questions you want to tackle below!
+            </p>
+        </div>
+
+        <!-- Quiz Setup / Configuration Card -->
+        <div id="quizSetupCard" class="bg-white dark:bg-[#182026] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 sm:p-8 shadow-xl mb-8">
+            <h2 class="text-xl font-bold mb-4 flex items-center space-x-2">
+                <i class="fa-solid fa-gear text-emeraldBrand"></i>
+                <span>Configure Your Quiz</span>
+            </h2>
+            <div class="space-y-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Select Number of Questions to Attempt (Max 50):
+                </label>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                    <button onclick="setQuestionCount(10)" class="count-btn py-3 px-4 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold text-sm hover:border-emeraldBrand hover:text-emeraldBrand transition-all" data-count="10">10 Questions</button>
+                    <button onclick="setQuestionCount(20)" class="count-btn py-3 px-4 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold text-sm hover:border-emeraldBrand hover:text-emeraldBrand transition-all" data-count="20">20 Questions</button>
+                    <button onclick="setQuestionCount(30)" class="count-btn py-3 px-4 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold text-sm hover:border-emeraldBrand hover:text-emeraldBrand transition-all" data-count="30">30 Questions</button>
+                    <button onclick="setQuestionCount(40)" class="count-btn py-3 px-4 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold text-sm hover:border-emeraldBrand hover:text-emeraldBrand transition-all" data-count="40">40 Questions</button>
+                    <button onclick="setQuestionCount(50)" class="count-btn py-3 px-4 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold text-sm bg-emeraldBrand text-white border-emeraldBrand transition-all col-span-2 sm:col-span-1" data-count="50">All 50 (Full)</button>
+                </div>
+                <div class="pt-4">
+                    <button onclick="startQuiz()" class="w-full bg-emeraldBrand hover:bg-emeraldBrand-dark text-white font-bold py-4 rounded-xl shadow-lg transition-all text-base flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Start C++ Quiz Now</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Quiz Container (Hidden initially) -->
+        <div id="quizActiveContainer" class="hidden space-y-6">
+            <!-- Progress Bar Header -->
+            <div class="bg-white dark:bg-[#182026] border border-gray-200 dark:border-gray-800 rounded-xl p-4 flex items-center justify-between shadow-sm">
+                <span id="questionProgressText" class="text-sm font-semibold text-gray-600 dark:text-gray-400">Question 1 of 50</span>
+                <div class="w-1/2 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                    <div id="progressBarFill" class="bg-emeraldBrand h-2.5 rounded-full transition-all duration-300" style="width: 2%"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white dark:bg-[#182026] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <h3 id="questionTitle" class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-6 leading-relaxed">
+                    <!-- Dynamic Question Text -->
+                </h3>
+                <div id="optionsContainer" class="space-y-3">
+                    <!-- Dynamic Options -->
+                </div>
+            </div>
+
+            <!-- Navigation Controls within Quiz -->
+            <div class="flex items-center justify-between pt-2">
+                <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-xl border border-gray-300 dark:border-gray-700 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Previous
+                </button>
+                <button id="nextBtn" onclick="nextQuestion()" class="bg-emeraldBrand hover:bg-emeraldBrand-dark text-white px-8 py-3 rounded-xl font-semibold text-sm shadow-md transition-all">
+                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Results Container (Hidden initially) -->
+        <div id="quizResultContainer" class="hidden bg-white dark:bg-[#182026] border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-2xl text-center space-y-6">
+            <div class="w-20 h-20 bg-emeraldBrand/10 text-emeraldBrand rounded-full flex items-center justify-center mx-auto text-4xl">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <div>
+                <h2 class="text-3xl font-black mb-2">Quiz Completed!</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">Here is a breakdown of your performance on the C++ exam.</p>
+            </div>
+            <div class="py-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl max-w-sm mx-auto border border-gray-200 dark:border-gray-700">
+                <div id="scorePercentage" class="text-5xl font-black text-emeraldBrand mb-2">86%</div>
+                <div id="scoreSummaryText" class="text-sm font-medium text-gray-600 dark:text-gray-300">You scored 43 out of 50 correct</div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <button onclick="resetQuiz()" class="bg-emeraldBrand hover:bg-emeraldBrand-dark text-white font-bold px-8 py-3 rounded-xl shadow transition-all">
+                    <i class="fa-solid fa-rotate-right mr-2"></i> Try Again / Retake
+                </button>
+                <a href="tutor.html" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold px-8 py-3 rounded-xl transition-all inline-flex items-center">
+                    Review Tutorial Chapters <i class="fa-solid fa-book-open ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-[#182026] border-t border-gray-200 dark:border-gray-800 py-6 mt-12 text-center text-sm text-gray-500">
+        <p>&copy; 2026 w8 school. All rights reserved. Built for C++ learners worldwide.</p>
+    </footer>
+
+    <!-- JavaScript Quiz Engine & 50 MCQs -->
+    <script>
+        // 50 C++ Multiple Choice Questions Bank
+        const allQuestions = [
+            { q: "Which of the following is the correct file extension for C++ files?", options: [".cpp", ".cb", ".cp", ".cxx"], answer: 0 },
+            { q: "Which symbol is used to output data to the screen in C++?", options: [">>", "<<", "::", "->"], answer: 1 },
+            { q: "Which object is used for standard output in C++?", options: ["cin", "cout", "cerr", "clog"], answer: 1 },
+            { q: "Which header file is required to use std::cout and std::cin?", options: ["<stdio.h>", "<stdlib.h>", "<iostream>", "<string>"], answer: 2 },
+            { q: "What is the correct way to write a single-line comment in C++?", options: ["<!-- comment -->", "/* comment */", "// comment", "# comment"], answer: 2 },
+            { q: "Which keyword is used to define a constant variable in C++?", options: ["constant", "const", "static", "define"], answer: 1 },
+            { q: "What is the default access specifier for members of a class in C++?", options: ["public", "protected", "private", "friend"], answer: 2 },
+            { q: "What is the default access specifier for members of a struct in C++?", options: ["public", "protected", "private", "global"], answer: 0 },
+            { q: "Which operator is used to get the memory address of a variable?", options: ["*", "&", "->", "."], answer: 1 },
+            { q: "What is a pointer in C++?", options: ["A variable that stores data value", "A variable that stores the memory address of another variable", "A special loop structure", "An array method"], answer: 1 },
+            { q: "Which of the following loops guarantees that the loop body will execute at least once?", options: ["for", "while", "do-while", "foreach"], answer: 2 },
+            { q: "How do you declare a reference variable in C++?", options: ["int &ref = x;", "int *ref = x;", "int ref = &x;", "ref int = x;"], answer: 0 },
+            { q: "Which STL container stores elements in a dynamically sized array?", options: ["std::list", "std::map", "std::vector", "std::stack"], answer: 2 },
+            { q: "Which STL container implements a Last-In, First-Out (LIFO) structure?", options: ["std::queue", "std::stack", "std::vector", "std::set"], answer: 1 },
+            { q: "Which STL container implements a First-In, First-Out (FIFO) structure?", options: ["std::stack", "std::queue", "std::deque", "std::map"], answer: 1 },
+            { q: "What does OOP stand for?", options: ["Object Oriented Programming", "Operational Output Protocol", "Order of Operations Programming", "Object Oriented Process"], answer: 0 },
+            { q: "Which pillar of OOP allows a class to inherit properties from another class?", options: ["Encapsulation", "Polymorphism", "Inheritance", "Abstraction"], answer: 2 },
+            { q: "What is function overloading?", options: ["Writing functions with the same name but different parameters", "Calling a function inside itself", "Overwriting base class functions", "Passing pointers to functions"], answer: 0 },
+            { q: "What is recursion in C++?", options: ["A function calling itself", "Looping through an array", "Dynamic memory allocation", "Error handling technique"], answer: 0 },
+            { q: "Which keyword is used to handle exceptions in C++?", options: ["try, catch, throw", "error, rescue", "if, else", "signal, handle"], answer: 0 },
+            { q: "How do you dynamically allocate memory for an integer in C++?", options: ["int* p = malloc(sizeof(int));", "int* p = new int;", "int p = alloc(int);", "int* p = create int;"], answer: 1 },
+            { q: "How do you free memory allocated with 'new'?", options: ["free(p);", "delete p;", "remove p;", "clear(p);"], answer: 1 },
+            { q: "What is the output of sizeof(char) in C++?", options: ["2 bytes", "4 bytes", "1 byte", "8 bytes"], answer: 2 },
+            { q: "Which namespace is standard library functions enclosed in?", options: ["std", "cstd", "iostream", "global"], answer: 0 },
+            { q: "Which operator cannot be overloaded in C++?", options: ["::", "+", "=", "[]"], answer: 0 },
+            { q: "What is a virtual function used for?", options: ["To achieve runtime polymorphism", "To speed up execution", "To create constant functions", "To allocate memory"], answer: 0 },
+            { q: "What is a pure virtual function?", options: ["A function with zero body (virtual void func() = 0;)", "A function that returns zero", "A private method", "A static method"], answer: 0 },
+            { q: "Which header provides mathematical functions like sqrt() and pow()?", options: ["<math.h>", "<cmath>", "<algorithm>", "<numeric>"], answer: 1 },
+            { q: "What is the return type of the main function in C++?", options: ["void", "int", "float", "char"], answer: 1 },
+            { q: "Which keyword is used to prevent inheritance of a class in modern C++?", options: ["sealed", "final", "static", "private"], answer: 1 },
+            { q: "What is a template in C++ used for?", options: ["Generic programming", "File styling", "UI layouts", "Database connection"], answer: 0 },
+            { q: "Which container stores unique elements sorted by key?", options: ["std::vector", "std::set", "std::list", "std::queue"], answer: 1 },
+            { q: "Which method adds an element to the end of a std::vector?", options: ["add()", "push_back()", "append()", "insert()"], answer: 1 },
+            { q: "What is a lambda expression in C++?", options: ["An anonymous function object", "A Greek letter variable", "An inline comment", "A macro"], answer: 0 },
+            { q: "Which keyword is used to inherit a class publicly?", options: ["public", "extends", "inherits", "base"], answer: 0 },
+            { q: "What does the 'break' statement do in a loop?", options: ["Skips the current iteration", "Terminates the loop immediately", "Restarts the loop", "Pauses execution"], answer: 1 },
+            { q: "What does the 'continue' statement do in a loop?", options: ["Terminates the loop", "Skips to the next iteration", "Exits the program", "Resets loop counter"], answer: 1 },
+            { q: "Which stream is used for file writing in C++?", options: ["ifstream", "ofstream", "fstream", "iostream"], answer: 1 },
+            { q: "Which stream is used for file reading in C++?", options: ["ofstream", "ifstream", "freader", "iostream"], answer: 1 },
+            { q: "What is an enum in C++?", options: ["A user-defined type consisting of named integral constants", "An array of strings", "A floating point number", "A loop structure"], answer: 0 },
+            { q: "What is scope resolution operator?", options: ["::", ".", "->", "&"], answer: 0 },
+            { q: "Which data type is best for storing true/false values?", options: ["int", "char", "bool", "float"], answer: 2 },
+            { q: "How do you pass arguments by reference?", options: ["Using pointers (*)", "Using reference symbols (&)", "Using pass keyword", "Automatically"], answer: 1 },
+            { q: "What is a constructor?", options: ["A special member function called when an object is created", "A method to destroy objects", "A file reader", "A compiler error"], answer: 0 },
+            { q: "What is a destructor?", options: ["A function called when an object is destroyed", "A memory leak", "A delete operator", "A syntax error"], answer: 0 },
+            { q: "Which algorithm sorts a vector in ascending order?", options: ["std::sort()", "std::order()", "std::arrange()", "std::sorted()"], answer: 0 },
+            { q: "What is the time complexity of binary search in std::vector?", options: ["O(n)", "O(log n)", "O(1)", "O(n^2)"], answer: 1 },
+            { q: "What is a friend function?", options: ["A function that can access private and protected members of a class", "A function from another file", "A public method", "An inline function"], answer: 0 },
+            { q: "Which cast operator is safest and preferred in modern C++ for polymorphic casting?", options: ["dynamic_cast", "static_cast", "const_cast", "reinterpret_cast"], answer: 0 },
+            { q: "What is the primary benefit of Smart Pointers (std::unique_ptr, std::shared_ptr)?", options: ["Automatic memory management preventing memory leaks", "Faster CPU execution", "Smaller binary size", "Easier debugging"], answer: 0 }
+        ];
+
+        let selectedCount = 50;
+        let activeQuestions = [];
+        let currentIndex = 0;
+        let userAnswers = {};
+
+        function setQuestionCount(count) {
+            selectedCount = count;
+            document.querySelectorAll('.count-btn').forEach(btn => {
+                if(parseInt(btn.getAttribute('data-count')) === count) {
+                    btn.className = "count-btn py-3 px-4 rounded-xl border border-emeraldBrand bg-emeraldBrand text-white font-semibold text-sm transition-all";
+                } else {
+                    btn.className = "count-btn py-3 px-4 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold text-sm hover:border-emeraldBrand hover:text-emeraldBrand transition-all";
+                }
+            });
+        }
+
+        function startQuiz() {
+            // Shuffle and slice questions based on user selection
+            let shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            activeQuestions = shuffled.slice(0, selectedCount);
+            currentIndex = 0;
+            userAnswers = {};
+
+            document.getElementById('quizSetupCard').classList.add('hidden');
+            document.getElementById('quizActiveContainer').classList.remove('hidden');
+            document.getElementById('quizResultContainer').classList.add('hidden');
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            let qData = activeQuestions[currentIndex];
+            document.getElementById('questionProgressText').innerText = `Question ${currentIndex + 1} of ${activeQuestions.length}`;
+            let progressPercent = ((currentIndex + 1) / activeQuestions.length) * 100;
+            document.getElementById('progressBarFill').style.width = `${progressPercent}%`;
+
+            document.getElementById('questionTitle').innerText = `${currentIndex + 1}. ${qData.q}`;
+
+            let optionsHtml = '';
+            qData.options.forEach((opt, idx) => {
+                let isChecked = userAnswers[currentIndex] === idx ? 'bg-emeraldBrand/10 border-emeraldBrand text-emeraldBrand dark:bg-emeraldBrand/20' : 'border-gray-200 dark:border-gray-700 hover:border-emeraldBrand';
+                optionsHtml += `
+                    <label onclick="selectOption(${currentIndex}, ${idx})" class="flex items-center space-x-3 p-4 rounded-xl border ${isChecked} cursor-pointer transition-all font-medium text-sm sm:text-base">
+                        <input type="radio" name="q_${currentIndex}" value="${idx}" ${userAnswers[currentIndex] === idx ? 'checked' : ''} class="text-emeraldBrand focus:ring-emeraldBrand h-4 w-4">
+                        <span>${opt}</span>
+                    </label>
+                `;
+            });
+            document.getElementById('optionsContainer').innerHTML = optionsHtml;
+
+            // Buttons state
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            let nextBtn = document.getElementById('nextBtn');
+            if (currentIndex === activeQuestions.length - 1) {
+                nextBtn.innerHTML = `Submit Quiz <i class="fa-solid fa-check ml-2"></i>`;
+                nextBtn.onclick = submitQuiz;
+            } else {
+                nextBtn.innerHTML = `Next <i class="fa-solid fa-arrow-right ml-2"></i>`;
+                nextBtn.onclick = nextQuestion;
+            }
+        }
+
+        function selectOption(qIdx, optIdx) {
+            userAnswers[qIdx] = optIdx;
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentIndex < activeQuestions.length - 1) {
+                currentIndex++;
+                renderQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+            activeQuestions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.answer) {
+                    correctCount++;
+                }
+            });
+
+            let percentage = Math.round((correctCount / activeQuestions.length) * 100);
+
+            document.getElementById('quizActiveContainer').classList.add('hidden');
+            document.getElementById('quizResultContainer').classList.remove('hidden');
+
+            document.getElementById('scorePercentage').innerText = `${percentage}%`;
+            document.getElementById('scoreSummaryText').innerText = `You scored ${correctCount} out of ${activeQuestions.length} correct`;
+        }
+
+        function resetQuiz() {
+            document.getElementById('quizResultContainer').classList.add('hidden');
+            document.getElementById('quizSetupCard').classList.remove('hidden');
+        }
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = "fa-solid fa-moon text-lg";
+                localStorage.setItem('w8_theme', 'light');
+            } else {
+                html.classList.add('dark');
+                icon.className = "fa-solid fa-sun text-lg";
+                localStorage.setItem('w8_theme', 'dark');
+            }
+        }
+
+        // Initialize Theme from storage
+        if (localStorage.getItem('w8_theme') === 'dark' || (!localStorage.getItem('w8_theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('themeIcon').className = "fa-solid fa-sun text-lg";
+        }
+    </script>
+</body>
+</html>

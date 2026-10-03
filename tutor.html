@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Tutorial - W3Schools Style</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        w3green: '#04AA6D',
+                        w3greenDark: '#038858',
+                        w3dark: '#1d1e22',
+                        w3darker: '#121214',
+                        w3card: '#f1f1f1',
+                        w3cardDark: '#282a35'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        code, pre { font-family: 'Fira Code', monospace; }
+        /* Custom scrollbars for clean W3Schools look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="h-full bg-white dark:bg-w3darker text-gray-800 dark:text-gray-100 transition-colors duration-200 overflow-hidden flex flex-col">
+
+    <!-- Header Navbar -->
+    <header class="h-16 bg-gray-900 text-white flex items-center justify-between px-4 lg:px-6 shadow-md shrink-0 z-30">
+        <div class="flex items-center space-x-4">
+            <button id="sidebar-toggle" class="lg:hidden text-xl focus:outline-none hover:text-w3green transition-colors">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="index.html" onclick="loadTopic('home')" class="flex items-center space-x-2 text-2xl font-bold tracking-wider">
+                <span class="text-w3green"><i class="fa-solid fa-code"></i></span>
+                <span>C++<span class="text-w3green font-light text-sm ml-1 bg-w3green/20 px-2 py-0.5 rounded">Tutorial</span></span>
+            </a>
+        </div>
+
+        <!-- Global Search Bar -->
+        <div class="hidden md:flex relative flex-1 max-w-md mx-6">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                <i class="fa-solid fa-search"></i>
+            </span>
+            <input type="text" id="global-search" placeholder="Search C++ tutorials, keywords, arrays..." 
+                class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:border-w3green transition-all">
+            <div id="search-dropdown" class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl max-h-80 overflow-y-auto hidden z-50"></div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <!-- Dark / Light Mode Toggle -->
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors" title="Toggle Theme">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+            </button>
+            <!-- Login / Sign Up Button -->
+            <button id="open-auth-modal" class="bg-w3green hover:bg-w3greenDark text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow">
+                <i class="fa-solid fa-user mr-1.5"></i> Sign In
+            </button>
+        </div>
+    </header>
+
+    <!-- Main App Container with Dual Independent Scrolling -->
+    <div class="flex-1 flex overflow-hidden h-[calc(100vh-4rem)]">
+        
+        <!-- Left Sidebar (Independent Scrolling) -->
+        <aside id="sidebar" class="w-72 bg-gray-50 dark:bg-[#1a1c23] border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto shrink-0 transition-all duration-300 z-20 flex flex-col">
+            <div class="p-4 border-b border-gray-200 dark:border-gray-800 md:hidden">
+                <div class="relative">
+                    <input type="text" id="mobile-search" placeholder="Search..." class="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-sm">
+                    <span class="absolute left-3 top-2.5 text-gray-400"><i class="fa-solid fa-search text-xs"></i></span>
+                </div>
+            </div>
+            <nav id="nav-menu" class="p-4 space-y-6 text-sm flex-1">
+                <!-- Dynamically populated navigation tree -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Panel (Independent Scrolling) -->
+        <main id="main-content-panel" class="flex-1 h-full overflow-y-auto bg-white dark:bg-w3dark text-gray-800 dark:text-gray-100 p-6 md:p-10 transition-colors duration-200">
+            <!-- Content gets loaded here dynamically -->
+        </main>
+    </div>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-gray-800 w-full max-w-md rounded-2xl shadow-2xl p-6 relative transform scale-95 transition-transform duration-300" id="auth-modal-box">
+            <button id="close-auth-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex border-b border-gray-200 dark:border-gray-700 mb-6">
+                <button id="tab-signin" class="flex-1 pb-3 font-semibold text-w3green border-b-2 border-w3green transition-colors">Sign In</button>
+                <button id="tab-signup" class="flex-1 pb-3 font-semibold text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">Sign Up</button>
+            </div>
+            
+            <!-- Sign In Form -->
+            <form id="form-signin" class="space-y-4" onsubmit="handleAuth(event, 'signin')">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-1">Email Address</label>
+                    <input type="email" required class="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:border-w3green">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-1">Password</label>
+                    <input type="password" required class="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:border-w3green">
+                </div>
+                <button type="submit" class="w-full bg-w3green hover:bg-w3greenDark text-white font-semibold py-2.5 rounded-lg transition-colors shadow">Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="form-signup" class="space-y-4 hidden" onsubmit="handleAuth(event, 'signup')">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-1">Full Name</label>
+                    <input type="text" required class="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:border-w3green">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-1">Email Address</label>
+                    <input type="email" required class="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:border-w3green">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-1">Password</label>
+                    <input type="password" required class="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:border-w3green">
+                </div>
+                <button type="submit" class="w-full bg-w3green hover:bg-w3greenDark text-white font-semibold py-2.5 rounded-lg transition-colors shadow">Create Account</button>
+            </form>
+            <div id="auth-msg" class="mt-4 text-center text-sm font-medium"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // C++ Tutorial Topics Data Structure
+        const tutorials = [
+            {
+                category: "C++ Tutorial",
+                items: [
+                    { id: "home", title: "C++ HOME" },
+                    { id: "intro", title: "C++ Intro" },
+                    { id: "get_started", title: "C++ Get Started" },
+                    { id: "syntax", title: "C++ Syntax" },
+                    { id: "output", title: "C++ Output" },
+                    { id: "comments", title: "C++ Comments" },
+                    { id: "variables", title: "C++ Variables" },
+                    { id: "user_input", title: "C++ User Input" },
+                    { id: "data_types", title: "C++ Data Types" },
+                    { id: "operators", title: "C++ Operators" },
+                    { id: "strings", title: "C++ Strings" },
+                    { id: "math", title: "C++ Math" },
+                    { id: "booleans", title: "C++ Booleans" },
+                    { id: "conditions", title: "C++ If...Else" },
+                    { id: "switch", title: "C++ Switch" },
+                    { id: "while_loop", title: "C++ While Loop" },
+                    { id: "for_loop", title: "C++ For Loop" },
+                    { id: "break_continue", title: "C++ Break/Continue" },
+                    { id: "arrays", title: "C++ Arrays" },
+                    { id: "structures", title: "C++ Structures" },
+                    { id: "enums", title: "C++ Enums" },
+                    { id: "references", title: "C++ References" },
+                    { id: "pointers", title: "C++ Pointers" },
+                    { id: "memory_mgmt", title: "C++ Memory Mgmt" }
+                ]
+            },
+            {
+                category: "C++ Functions",
+                items: [
+                    { id: "functions", title: "C++ Functions" },
+                    { id: "function_parameters", title: "C++ Parameters" },
+                    { id: "function_overloading", title: "C++ Overloading" },
+                    { id: "scope", title: "C++ Scope" },
+                    { id: "recursion", title: "C++ Recursion" },
+                    { id: "lambda", title: "C++ Lambda" }
+                ]
+            },
+            {
+                category: "C++ Classes (OOP)",
+                items: [
+                    { id: "oop", title: "C++ OOP Intro" },
+                    { id: "classes_objects", title: "C++ Classes/Objects" },
+                    { id: "class_methods", title: "C++ Class Methods" },
+                    { id: "constructors", title: "C++ Constructors" },
+                    { id: "access_specifiers", title: "C++ Access Specifiers" },
+                    { id: "encapsulation", title: "C++ Encapsulation" },
+                    { id: "friend_functions", title: "C++ Friend Functions" },
+                    { id: "inheritance", title: "C++ Inheritance" },
+                    { id: "polymorphism", title: "C++ Polymorphism" },
+                    { id: "templates", title: "C++ Templates" },
+                    { id: "files", title: "C++ Files" },
+                    { id: "date", title: "C++ Date" }
+                ]
+            },
+            {
+                category: "C++ Exceptions & Errors",
+                items: [
+                    { id: "errors", title: "C++ Errors" },
+                    { id: "debugging", title: "C++ Debugging" },
+                    { id: "exceptions", title: "C++ Exceptions" },
+                    { id: "input_validation", title: "C++ Input Validation" }
+                ]
+            },
+            {
+                category: "C++ STL & Data Structures",
+                items: [
+                    { id: "stl_intro", title: "STL Overview" },
+                    { id: "vectors", title: "C++ Vectors" },
+                    { id: "list", title: "C++ List" },
+                    { id: "stacks", title: "C++ Stacks" },
+                    { id: "queues", title: "C++ Queues" },
+                    { id: "deque", title: "C++ Deque" },
+                    { id: "sets", title: "C++ Sets" },
+                    { id: "maps", title: "C++ Maps" },
+                    { id: "iterators", title: "C++ Iterators" },
+                    { id: "algorithms", title: "C++ Algorithms" }
+                ]
+            },
+            {
+                category: "Advanced & Projects",
+                items: [
+                    { id: "namespaces", title: "C++ Namespaces" },
+                    { id: "cpp_projects", title: "C++ Projects" },
+                    { id: "certificate", title: "C++ Certificate" },
+                    { id: "add_two_numbers", title: "Add Two Numbers" },
+                    { id: "random_numbers", title: "Random Numbers" }
+                ]
+            },
+            {
+                category: "C++ Reference",
+                items: [
+                    { id: "ref_keywords", title: "Keywords Reference" },
+                    { id: "ref_iostream", title: "<iostream>" },
+                    { id: "ref_fstream", title: "<fstream>" },
+                    { id: "ref_cmath", title: "<cmath>" },
+                    { id: "ref_string", title: "<string>" },
+                    { id: "ref_cstring", title: "<cstring>" },
+                    { id: "ref_ctime", title: "<ctime>" },
+                    { id: "ref_vector", title: "<vector>" },
+                    { id: "ref_algorithm", title: "<algorithm>" }
+                ]
+            }
+        ];
+
+        // Comprehensive content repository for every chapter
+        const contentData = {
+            home: {
+                title: "C++ Tutorial",
+                desc: "C++ is a powerful, high-performance, object-oriented programming language created by Bjarne Stroustrup as an extension of the C language.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello World!";\n    return 0;\n}`,
+                explanation: [
+                    "C++ gives programmers a high level of control over system resources and memory.",
+                    "It is widely used in game development, desktop apps, operating systems, and cloud infrastructure.",
+                    "C++ is fun and easy to learn!"
+                ]
+            },
+            intro: {
+                title: "C++ Introduction",
+                desc: "What is C++? C++ is a cross-platform language that can be used to create high-performance applications.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Welcome to C++ Intro!";\n    return 0;\n}`,
+                explanation: [
+                    "C++ was developed by Bjarne Stroustrup starting in 1979 at Bell Labs.",
+                    "It runs on many different platforms, including Windows, Mac OS, and Linux.",
+                    "It is an object-oriented language which gives a clear structure to programs and allows code to be reused."
+                ]
+            },
+            get_started: {
+                title: "C++ Get Started",
+                desc: "To start using C++, you need two things: A text editor to write C++ code, and a compiler to translate C++ code into machine language.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Ready to compile and run!";\n    return 0;\n}`,
+                explanation: [
+                    "Popular C++ compilers include GCC, Clang, MSVC, and MinGW.",
+                    "Many integrated development environments (IDEs) like Code::Blocks, Visual Studio, or CLion include compilers."
+                ]
+            },
+            syntax: {
+                title: "C++ Syntax",
+                desc: "Let's break down a simple C++ program line by line.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello World!\\n";\n    cout << "I am learning C++.";\n    return 0;\n}`,
+                explanation: [
+                    "<code>#include &lt;iostream&gt;</code> is a header file library that lets us work with input and output objects.",
+                    "<code>using namespace std;</code> means that we can use names for objects and variables from the standard library.",
+                    "<code>int main()</code> is a function. Any code inside its curly brackets {} will be executed.",
+                    "<code>cout</code> (pronounced see-out) is an object used together with the insertion operator (<<) to output text."
+                ]
+            },
+            output: {
+                title: "C++ Output (Print Text)",
+                desc: "To output values or print text in C++, you can use <code>cout</code> along with the <code>&lt;&lt;</code> operator.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello World! \\n";\n    cout << "I am learning C++!";\n    return 0;\n}`,
+                explanation: [
+                    "You can add as many <code>cout</code> objects as you want. However, note that it does not insert a new line at the end of the output.",
+                    "The <code>\\n</code> character is used to insert a new line. You can also use the <code>endl</code> manipulator."
+                ]
+            },
+            comments: {
+                title: "C++ Comments",
+                desc: "Comments can be used to explain C++ code, and to make it more readable. They can also be used to prevent execution when testing alternative code.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    // This is a single-line comment\n    cout << "Hello World!\\n";\n    /* This is a multi-line comment\n       spanning multiple lines */\n    cout << "Comments are great!";\n    return 0;\n}`,
+                explanation: [
+                    "Single-line comments start with two forward slashes (<code>//</code>).",
+                    "Multi-line comments start with <code>/*</code> and end with <code>*/</code>."
+                ]
+            },
+            variables: {
+                title: "C++ Variables",
+                desc: "Variables are containers for storing data values.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int myNum = 15;\n    double myFloatNum = 5.99;\n    char myLetter = 'D';\n    string myText = "Hello";\n    bool myBoolean = true;\n    \n    cout << myNum << "\\n";\n    cout << myText;\n    return 0;\n}`,
+                explanation: [
+                    "<code>int</code> stores integers (whole numbers), without decimals.",
+                    "<code>double</code> stores floating point numbers, with decimals.",
+                    "<code>char</code> stores single characters, surrounded by single quotes.",
+                    "<code>string</code> stores text.",
+                    "<code>bool</code> stores values with two states: true or false."
+                ]
+            },
+            user_input: {
+                title: "C++ User Input",
+                desc: "You have already learned that <code>cout</code> is used for output. Now we will use <code>cin</code> to get user input.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x;\n    cout << "Type a number: ";\n    // Simulated input value\n    x = 42;\n    cout << "Your number is: " << x;\n    return 0;\n}`,
+                explanation: [
+                    "<code>cin</code> is a predefined variable that reads data from the keyboard with the extraction operator (<code>&gt;&gt;</code>).",
+                    "It allows interactive program design."
+                ]
+            },
+            data_types: {
+                title: "C++ Data Types",
+                desc: "Data types specify the size and type of information the variable can store.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int items = 50;\n    float costPerItem = 9.99;\n    double totalCost = items * costPerItem;\n    cout << "Total cost: $" << totalCost;\n    return 0;\n}`,
+                explanation: [
+                    "Numeric types are divided into integer types and floating-point types.",
+                    "Choosing the right data type ensures optimal memory usage and precision."
+                ]
+            },
+            operators: {
+                title: "C++ Operators",
+                desc: "Operators are used to perform operations on variables and values.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int sum1 = 100 + 50;\n    int sum2 = sum1 + 250;\n    int sum3 = sum2 + sum2;\n    cout << sum3;\n    return 0;\n}`,
+                explanation: [
+                    "Arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>++</code>, <code>--</code>.",
+                    "Assignment operators: <code>=</code>, <code>+=</code>, <code>-=</code>, etc.",
+                    "Comparison and Logical operators: <code>==</code>, <code>!=</code>, <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>."
+                ]
+            },
+            strings: {
+                title: "C++ Strings",
+                desc: "Strings are used for storing text.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string firstName = "John ";\n    string lastName = "Doe";\n    string fullName = firstName + lastName;\n    cout << fullName << "\\nLength: " << fullName.length();\n    return 0;\n}`,
+                explanation: [
+                    "A string variable contains a collection of characters surrounded by double quotes.",
+                    "You can concatenate strings using the <code>+</code> operator or <code>append()</code> function.",
+                    "The <code>length()</code> function returns the length of the string."
+                ]
+            },
+            math: {
+                title: "C++ Math",
+                desc: "C++ has many functions that allow you to perform mathematical tasks on numbers.",
+                code: `#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    cout << sqrt(64) << "\\n";\n    cout << round(2.6) << "\\n";\n    cout << log(2);\n    return 0;\n}`,
+                explanation: [
+                    "Include <code>&lt;cmath&gt;</code> library to use advanced math functions like <code>sqrt()</code>, <code>round()</code>, <code>pow()</code>, and <code>abs()</code>."
+                ]
+            },
+            booleans: {
+                title: "C++ Booleans",
+                desc: "Very often in C++, you will need data type that can only have one of two values, like YES/NO, ON/OFF, TRUE/FALSE.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    bool isCodingFun = true;\n    bool isFishTasty = false;\n    cout << isCodingFun << "\\n";\n    cout << isFishTasty;\n    return 0;\n}`,
+                explanation: [
+                    "C++ boolean type is <code>bool</code>, and can take values <code>true</code> (1) or <code>false</code> (0)."
+                ]
+            },
+            conditions: {
+                title: "C++ If...Else Conditions",
+                desc: "C++ supports the usual logical conditions from mathematics.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int time = 20;\n    if (time < 18) {\n        cout << "Good day.";\n    } else {\n        cout << "Good evening.";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Use <code>if</code> to specify a block of code to be executed, if a specified condition is true.",
+                    "Use <code>else</code> to specify a block of code to be executed, if the same condition is false.",
+                    "Use <code>else if</code> to specify a new condition to test, if the first condition is false."
+                ]
+            },
+            switch: {
+                title: "C++ Switch Statement",
+                desc: "Use the <code>switch</code> statement to select one of many code blocks to be executed.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int day = 4;\n    switch (day) {\n        case 6:\n            cout << "Today is Saturday";\n            break;\n        case 7:\n            cout << "Today is Sunday";\n            break;\n        default:\n            cout << "Looking forward to the Weekend";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "The <code>switch</code> expression is evaluated once.",
+                    "The value of the expression is compared with the values of each case.",
+                    "If there is a match, the associated block of code is executed."
+                ]
+            },
+            while_loop: {
+                title: "C++ While Loop",
+                desc: "Loops can execute a block of code as long as a specified condition is reached.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int i = 0;\n    while (i < 5) {\n        cout << i << "\\n";\n        i++;\n    }\n    return 0;\n}`,
+                explanation: [
+                    "The <code>while</code> loop loops through a block of code as long as a specified condition is true."
+                ]
+            },
+            for_loop: {
+                title: "C++ For Loop",
+                desc: "When you know exactly how many times you want to loop through a block of code, use the <code>for</code> loop.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    for (int i = 0; i < 5; i++) {\n        cout << "Iteration: " << i << "\\n";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Statement 1 is executed (one time) before the execution of the code block.",
+                    "Statement 2 defines the condition for executing the code block.",
+                    "Statement 3 is executed (every time) after the code block has been executed."
+                ]
+            },
+            break_continue: {
+                title: "C++ Break and Continue",
+                desc: "You have already seen the <code>break</code> statement used in an earlier chapter of this tutorial. It was used to 'jump out' of a switch statement.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    for (int i = 0; i < 10; i++) {\n        if (i == 4) {\n            continue;\n        }\n        if (i == 8) {\n            break;\n        }\n        cout << i << "\\n";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "<code>break</code> can also be used to jump out of a loop.",
+                    "<code>continue</code> breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop."
+                ]
+            },
+            arrays: {
+                title: "C++ Arrays",
+                desc: "Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};\n    cars[0] = "Opel";\n    cout << cars[0];\n    return 0;\n}`,
+                explanation: [
+                    "To declare an array, define the variable type, specify the name of the array followed by square brackets and specify the number of elements it should store."
+                ]
+            },
+            structures: {
+                title: "C++ Structures (structs)",
+                desc: "Structures (also called structs) are a way to group several related variables into one place.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    struct {\n        int myNum;\n        string myString;\n    } myStructure;\n\n    myStructure.myNum = 1;\n    myStructure.myString = "Hello World!";\n\n    cout << myStructure.myNum << "\\n";\n    cout << myStructure.myString;\n    return 0;\n}`,
+                explanation: [
+                    "Each variable in a structure is known as a member of the structure.",
+                    "Unlike an array, a structure can contain many different data types (int, string, bool, etc.)."
+                ]
+            },
+            enums: {
+                title: "C++ Enums",
+                desc: "An enum is a special type that represents a group of constants (unchangeable values).",
+                code: `#include <iostream>\nusing namespace std;\n\nenum Level {\n    LOW = 1,\n    MEDIUM,\n    HIGH\n};\n\nint main() {\n    enum Level myVar = MEDIUM;\n    cout << myVar;\n    return 0;\n}`,
+                explanation: [
+                    "To create an enum, use the <code>enum</code> keyword, followed by the name of the enum, and separate the enum items with a comma."
+                ]
+            },
+            references: {
+                title: "C++ References",
+                desc: "A reference variable is a reference to an existing variable, and it is created with the & operator.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string food = "Pizza";\n    string &meal = food;\n\n    cout << food << "\\n";\n    cout << meal << "\\n";\n    return 0;\n}`,
+                explanation: [
+                    "<code>meal</code> is a reference to <code>food</code>. Both point to the exact same memory value."
+                ]
+            },
+            pointers: {
+                title: "C++ Pointers",
+                desc: "A pointer is a variable that stores the memory address of another variable as its value.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string food = "Pizza";\n    string* ptr = &food;\n\n    cout << food << "\\n";\n    cout << &food << "\\n";\n    cout << ptr;\n    return 0;\n}`,
+                explanation: [
+                    "The <code>&amp;</code> operator is used to get the memory address of a variable.",
+                    "A pointer points to a data type (like <code>int</code> or <code>string</code>) of the same type, and is created with the <code>*</code> operator."
+                ]
+            },
+            memory_mgmt: {
+                title: "C++ Memory Management",
+                desc: "Dynamic memory allocation refers to performing memory allocation manually during runtime using <code>new</code> and <code>delete</code>.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int* ptr = new int;\n    *ptr = 25;\n    cout << "Dynamically allocated value: " << *ptr << "\\n";\n    delete ptr;\n    return 0;\n}`,
+                explanation: [
+                    "<code>new</code> allocates memory on the heap.",
+                    "<code>delete</code> frees the memory to prevent memory leaks."
+                ]
+            },
+            functions: {
+                title: "C++ Functions",
+                desc: "A function is a block of code which only runs when it is called.",
+                code: `#include <iostream>\nusing namespace std;\n\nvoid myFunction() {\n    cout << "I just got executed!";\n}\n\nint main() {\n    myFunction();\n    return 0;\n}`,
+                explanation: [
+                    "You can pass data, known as parameters, into a function.",
+                    "Functions are used to perform certain actions, and they are important for code reusability."
+                ]
+            },
+            function_parameters: {
+                title: "C++ Function Parameters",
+                desc: "Information can be passed to functions as a parameter. Parameters act as variables inside the function.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nvoid printName(string fname) {\n    cout << fname << " Refs\\n";\n}\n\nint main() {\n    printName("Liam");\n    printName("Jenny");\n    printName("Anja");\n    return 0;\n}`,
+                explanation: [
+                    "You can add as many parameters as you want, just separate them with a comma."
+                ]
+            },
+            function_overloading: {
+                title: "C++ Function Overloading",
+                desc: "With function overloading, multiple functions can have the same name with different parameters.",
+                code: `#include <iostream>\nusing namespace std;\n\nint plusFunc(int x, int y) {\n    return x + y;\n}\n\ndouble plusFunc(double x, double y) {\n    return x + y;\n}\n\nint main() {\n    int myNum1 = plusFunc(8, 5);\n    double myNum2 = plusFunc(4.3, 6.26);\n    cout << "Int: " << myNum1 << "\\n";\n    cout << "Double: " << myNum2;\n    return 0;\n}`,
+                explanation: [
+                    "Instead of defining functions that should do the same thing with different names, overloading allows clean, intuitive APIs."
+                ]
+            },
+            scope: {
+                title: "C++ Scope",
+                desc: "In C++, variables are only accessible inside the region they are created. This is called scope.",
+                code: `#include <iostream>\nusing namespace std;\n\nvoid myFunction() {\n    int x = 5;\n    cout << x;\n}\n\nint main() {\n    myFunction();\n    return 0;\n}`,
+                explanation: [
+                    "Local variables are created inside a function and are only available within that function.",
+                    "Global variables are created outside of all functions and are available to all functions."
+                ]
+            },
+            recursion: {
+                title: "C++ Recursion",
+                desc: "Recursion is the technique of making a function call itself. This technique provides a way to break down complicated problems into simple problems.",
+                code: `#include <iostream>\nusing namespace std;\n\nint sum(int k) {\n    if (k > 0) {\n        return k + sum(k - 1);\n    } else {\n        return 0;\n    }\n}\n\nint main() {\n    int result = sum(10);\n    cout << result;\n    return 0;\n}`,
+                explanation: [
+                    "Every recursive function must have a termination condition (base case) to prevent infinite loops and stack overflow."
+                ]
+            },
+            lambda: {
+                title: "C++ Lambda Expressions",
+                desc: "Lambda expressions are anonymous inline functions used for short snippets of code that are not reused.",
+                code: `#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    auto greet = []() {\n        cout << "Hello from Lambda!\\n";\n    };\n    greet();\n    return 0;\n}`,
+                explanation: [
+                    "Lambdas use the capture clause <code>[]</code> to access surrounding variables."
+                ]
+            },
+            oop: {
+                title: "C++ Object-Oriented Programming (OOP)",
+                desc: "Procedural programming is about writing procedures or functions that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass MyClass {\n  public:\n    int myNum;\n    string myString;\n};\n\nint main() {\n    MyClass myObj;\n    myObj.myNum = 15;\n    myObj.myString = "Some text";\n    cout << myObj.myNum << "\\n" << myObj.myString;\n    return 0;\n}`,
+                explanation: [
+                    "OOP has faster and easier execution, provides clear structure, and keeps code DRY (Don't Repeat Yourself)."
+                ]
+            },
+            classes_objects: {
+                title: "C++ Classes and Objects",
+                desc: "C++ is an object-oriented programming language. Everything in C++ is associated with classes and objects, along with its attributes and methods.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass Car {\n  public:\n    string brand;\n    string model;\n    int year;\n};\n\nint main() {\n    Car carObj1;\n    carObj1.brand = "BMW";\n    carObj1.model = "X5";\n    carObj1.year = 1999;\n    \n    cout << carObj1.brand << " " << carObj1.model;\n    return 0;\n}`,
+                explanation: [
+                    "A class is a user-defined blueprint or prototype from which objects are created."
+                ]
+            },
+            class_methods: {
+                title: "C++ Class Methods",
+                desc: "Methods are functions that belong to the class.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass MyClass {\n  public:\n    void myMethod() {\n        cout << "Hello World!";\n    }\n};\n\nint main() {\n    MyClass myObj;\n    myObj.myMethod();\n    return 0;\n}`,
+                explanation: [
+                    "You can define methods inside the class definition or outside by using the scope resolution operator (<code>::</code>)."
+                ]
+            },
+            constructors: {
+                title: "C++ Constructors",
+                desc: "A constructor in C++ is a special method that is automatically called when an object of a class is created.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass Car {\n  public:\n    string brand;\n    string model;\n    int year;\n    \n    Car(string x, string y, int z) {\n        brand = x;\n        model = y;\n        year = z;\n    }\n};\n\nint main() {\n    Car carObj1("BMW", "X5", 1999);\n    cout << carObj1.brand;\n    return 0;\n}`,
+                explanation: [
+                    "Constructors have the same name as the class, have no return type, and are great for setting initial values."
+                ]
+            },
+            access_specifiers: {
+                title: "C++ Access Specifiers",
+                desc: "By default, all members of a class in C++ are private. Access specifiers define how the members (attributes and methods) of a class can be accessed.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass MyClass {\n  public:\n    int x;\n  private:\n    int y;\n};\n\nint main() {\n    MyClass myObj;\n    myObj.x = 25;\n    // myObj.y = 50; // Error: y is private\n    cout << myObj.x;\n    return 0;\n}`,
+                explanation: [
+                    "<code>public</code> - members are accessible from outside the class.",
+                    "<code>private</code> - members cannot be accessed (or viewed) from outside the class.",
+                    "<code>protected</code> - members cannot be accessed from outside the class, however, they can be accessed in inherited classes."
+                ]
+            },
+            encapsulation: {
+                title: "C++ Encapsulation",
+                desc: "The meaning of Encapsulation, is to make sure that 'sensitive' data is hidden from users.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass Employee {\n  private:\n    int salary;\n  public:\n    void setSalary(int s) {\n        salary = s;\n    }\n    int getSalary() {\n        return salary;\n    }\n};\n\nint main() {\n    Employee myObj;\n    myObj.setSalary(50000);\n    cout << myObj.getSalary();\n    return 0;\n}`,
+                explanation: [
+                    "To achieve encapsulation, declare class variables/attributes as private and provide public get and set methods."
+                ]
+            },
+            friend_functions: {
+                title: "C++ Friend Functions",
+                desc: "A friend function allows a non-member function to access private and protected members of a class.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass Box {\n    private:\n        int length;\n    public:\n        Box(): length(10) {}\n        friend int printLength(Box b);\n};\n\nint printLength(Box b) {\n    return b.length;\n}\n\nint main() {\n    Box b;\n    cout << "Length: " << printLength(b);\n    return 0;\n}`,
+                explanation: [
+                    "Declared with the <code>friend</code> keyword inside the target class."
+                ]
+            },
+            inheritance: {
+                title: "C++ Inheritance",
+                desc: "In C++, it is possible to inherit attributes and methods from one class to another.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nclass Vehicle {\n  public:\n    string brand = "Ford";\n    void honk() {\n        cout << "Tuut, tuut!\\n";\n    }\n};\n\nclass Car : public Vehicle {\n  public:\n    string model = "Mustang";\n};\n\nint main() {\n    Car myCar;\n    myCar.honk();\n    cout << myCar.brand + " " + myCar.model;\n    return 0;\n}`,
+                explanation: [
+                    "Derived class (child) inherits from Base class (parent)."
+                ]
+            },
+            polymorphism: {
+                title: "C++ Polymorphism",
+                desc: "Polymorphism means 'many forms', and it occurs when we have many classes that are related to each other by inheritance.",
+                code: `#include <iostream>\nusing namespace std;\n\nclass Animal {\n  public:\n    virtual void animalSound() {\n        cout << "The animal makes a sound\\n";\n    }\n};\n\nclass Pig : public Animal {\n  public:\n    void animalSound() override {\n        cout << "The pig says: wee wee\\n";\n    }\n};\n\nint main() {\n    Animal* myAnimal = new Pig();\n    myAnimal->animalSound();\n    delete myAnimal;\n    return 0;\n}`,
+                explanation: [
+                    "Virtual functions enable runtime polymorphism in C++."
+                ]
+            },
+            templates: {
+                title: "C++ Templates",
+                desc: "Templates are the foundation of generic programming in C++. You can write a function or class that works with any data type.",
+                code: `#include <iostream>\nusing namespace std;\n\ntemplate <typename T>\nT myMax(T x, T y) {\n    return (x > y) ? x : y;\n}\n\nint main() {\n    cout << myMax(3, 7) << "\\n";\n    cout << myMax(3.14, 2.72);\n    return 0;\n}`,
+                explanation: [
+                    "Avoids code duplication for different data types."
+                ]
+            },
+            files: {
+                title: "C++ Files",
+                desc: "The <code>&lt;fstream&gt;</code> library allows us to create, write, and read files in C++.",
+                code: `#include <iostream>\n#include <fstream>\nusing namespace std;\n\nint main() {\n    // Create and open a text file\n    ofstream MyFile("filename.txt");\n    // Write to the file\n    MyFile << "Files can be tricky, but it is fun!";\n    // Close the file\n    MyFile.close();\n    cout << "File written successfully!";\n    return 0;\n}`,
+                explanation: [
+                    "<code>ofstream</code> creates and writes to files.",
+                    "<code>ifstream</code> reads from files.",
+                    "<code>fstream</code> combines both."
+                ]
+            },
+            date: {
+                title: "C++ Date & Time",
+                desc: "C++ provides the <code>&lt;ctime&gt;</code> library for working with dates and times.",
+                code: `#include <iostream>\n#include <ctime>\nusing namespace std;\n\nint main() {\n    time_t now = time(0);\n    char* dt = ctime(&now);\n    cout << "Current date and time is: " << dt;\n    return 0;\n}`,
+                explanation: [
+                    "Useful for logging, benchmarking, and timestamping."
+                ]
+            },
+            errors: {
+                title: "C++ Errors & Warnings",
+                desc: "When executing C++ code, different errors can occur: syntax errors, runtime errors, and logic errors.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int denominator = 0;\n    if (denominator == 0) {\n        cout << "Error: Division by zero avoided!";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Proper error checks ensure robust applications."
+                ]
+            },
+            debugging: {
+                title: "C++ Debugging",
+                desc: "Debugging is the process of identifying and removing errors from computer hardware or software code.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 10;\n    // Debug trace\n    cout << "[DEBUG] x = " << x << "\\n";\n    return 0;\n}`,
+                explanation: [
+                    "Using breakpoints and logs helps track down unexpected behavior."
+                ]
+            },
+            exceptions: {
+                title: "C++ Exceptions",
+                desc: "Error handling in C++ is managed through try, catch, and throw blocks.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    try {\n        int age = 15;\n        if (age >= 18) {\n            cout << "Access granted - you are old enough.";\n        } else {\n            throw (77);\n        }\n    } catch (int num) {\n        cout << "Access denied - You must be at least 18.\\nError code: " << num;\n    }\n    return 0;\n}`,
+                explanation: [
+                    "<code>try</code> defines a block of code to be tested for errors while it is being executed.",
+                    "<code>throw</code> exception when a problem is detected.",
+                    "<code>catch</code> defines a block of code to be executed, when an error occurs."
+                ]
+            },
+            input_validation: {
+                title: "C++ Input Validation",
+                desc: "Validating user input prevents invalid data from crashing your program.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int age;\n    cout << "Enter your age: ";\n    age = 25; // Simulated validated input\n    if (age > 0 && age < 120) {\n        cout << "Valid age entered: " << age;\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Always check ranges and input states."
+                ]
+            },
+            stl_intro: {
+                title: "C++ Standard Template Library (STL)",
+                desc: "The STL is a set of C++ template classes to provide common programming data structures and functions.",
+                code: `#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<string> animals = {"Cat", "Dog", "Rabbit"};\n    for (string a : animals) {\n        cout << a << "\\n";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Includes containers, algorithms, and iterators."
+                ]
+            },
+            vectors: {
+                title: "C++ Vectors",
+                desc: "Vectors are dynamic arrays that can grow and shrink in size as needed.",
+                code: `#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<string> cars = {"Volvo", "BMW", "Ford"};\n    cars.push_back("Tesla");\n    \n    for (int i = 0; i < cars.size(); i++) {\n        cout << cars[i] << "\\n";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Unlike standard arrays, vectors manage their own storage allocation automatically."
+                ]
+            },
+            list: {
+                title: "C++ List",
+                desc: "A list is a doubly-linked list container that allows rapid insertion and deletion from anywhere in the container.",
+                code: `#include <iostream>\n#include <list>\nusing namespace std;\n\nint main() {\n    list<int> numbers = {1, 2, 3, 4, 5};\n    numbers.push_front(0);\n    numbers.push_back(6);\n    \n    for (int n : numbers) {\n        cout << n << " ";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Efficient for frequent insertions/deletions compared to vectors."
+                ]
+            },
+            stacks: {
+                title: "C++ Stacks",
+                desc: "A stack is a Last-In, First-Out (LIFO) data structure.",
+                code: `#include <iostream>\n#include <stack>\nusing namespace std;\n\nint main() {\n    stack<string> cards;\n    cards.push("King");\n    cards.push("Queen");\n    cards.push("Jack");\n    \n    cout << "Top card: " << cards.top() << "\\n";\n    cards.pop();\n    cout << "New top card: " << cards.top();\n    return 0;\n}`,
+                explanation: [
+                    "Elements are added and removed only from one end (top)."
+                ]
+            },
+            queues: {
+                title: "C++ Queues",
+                desc: "A queue is a First-In, First-Out (FIFO) data structure.",
+                code: `#include <iostream>\n#include <queue>\nusing namespace std;\n\nint main() {\n    queue<string> line;\n    line.push("Alice");\n    line.push("Bob");\n    line.push("Charlie");\n    \n    cout << "First in line: " << line.front() << "\\n";\n    line.pop();\n    cout << "New first in line: " << line.front();\n    return 0;\n}`,
+                explanation: [
+                    "Elements are added at the back and removed from the front."
+                ]
+            },
+            deque: {
+                title: "C++ Deque (Double-Ended Queue)",
+                desc: "A deque allows fast insertion and deletion at both its beginning and its end.",
+                code: `#include <iostream>\n#include <deque>\nusing namespace std;\n\nint main() {\n    deque<int> dq = {2, 3, 4};\n    dq.push_front(1);\n    dq.push_back(5);\n    \n    for (int x : dq) {\n        cout << x << " ";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Combines features of vectors and lists."
+                ]
+            },
+            sets: {
+                title: "C++ Sets",
+                desc: "A set is a collection of unique elements sorted automatically.",
+                code: `#include <iostream>\n#include <set>\nusing namespace std;\n\nint main() {\n    set<string> cars = {"Volvo", "BMW", "Ford", "BMW"};\n    // Duplicate BMW is ignored\n    for (string car : cars) {\n        cout << car << "\\n";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Useful when membership testing and uniqueness are required."
+                ]
+            },
+            maps: {
+                title: "C++ Maps",
+                desc: "Maps store key-value pairs with unique keys sorted by key.",
+                code: `#include <iostream>\n#include <map>\nusing namespace std;\n\nint main() {\n    map<string, int> ages = {{"John", 25}, {"Alice", 30}};\n    ages["Bob"] = 22;\n    \n    for (auto pair : ages) {\n        cout << pair.first << " is " << pair.second << " years old.\\n";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Key-value lookup table with logarithmic search times."
+                ]
+            },
+            iterators: {
+                title: "C++ Iterators",
+                desc: "Iterators are used to point to memory addresses of STL container elements.",
+                code: `#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<string> cars = {"Volvo", "BMW", "Ford"};\n    auto it = cars.begin();\n    cout << *it;\n    return 0;\n}`,
+                explanation: [
+                    "Acts like a generalized pointer across containers."
+                ]
+            },
+            algorithms: {
+                title: "C++ Algorithms",
+                desc: "The <code>&lt;algorithm&gt;</code> library provides functions for searching, sorting, counting, and manipulating containers.",
+                code: `#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    vector<int> numbers = {5, 2, 9, 1, 5, 6};\n    sort(numbers.begin(), numbers.end());\n    \n    for (int n : numbers) {\n        cout << n << " ";\n    }\n    return 0;\n}`,
+                explanation: [
+                    "Provides high performance standard algorithms like <code>sort</code>, <code>binary_search</code>, <code>reverse</code>, etc."
+                ]
+            },
+            namespaces: {
+                title: "C++ Namespaces",
+                desc: "Namespaces are used to organize code into logical groups and to prevent name collisions that can occur especially when your code base has multiple libraries.",
+                code: `#include <iostream>\nusing namespace std;\n\nnamespace First {\n    void sayHello() {\n        cout << "Hello from First namespace!\\n";\n    }\n}\n\nnamespace Second {\n    void sayHello() {\n        cout << "Hello from Second namespace!\\n";\n    }\n}\n\nint main() {\n    First::sayHello();\n    Second::sayHello();\n    return 0;\n}`,
+                explanation: [
+                    "Prevent name conflicts across large codebases."
+                ]
+            },
+            cpp_projects: {
+                title: "C++ Projects",
+                desc: "Build real-world console and graphics applications to reinforce your C++ mastery.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "=== Mini Bank ATM Project ===\\n";\n    double balance = 1000.0;\n    cout << "Current Balance: $" << balance;\n    return 0;\n}`,
+                explanation: [
+                    "Projects include: Calculator, To-Do List, Bank ATM, Snake Game, and Contact Manager."
+                ]
+            },
+            certificate: {
+                title: "C++ Certificate",
+                desc: "Earn your verified C++ Certificate by completing interactive quizzes and projects.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Congratulations on completing the C++ Course! Certificate Ready.";\n    return 0;\n}`,
+                explanation: [
+                    "Showcase your skills with an official certification."
+                ]
+            },
+            add_two_numbers: {
+                title: "C++ Add Two Numbers",
+                desc: "A classic beginner example illustrating variable addition.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 5;\n    int y = 10;\n    int sum = x + y;\n    cout << "Sum of " << x << " and " << y << " is " << sum;\n    return 0;\n}`,
+                explanation: [
+                    "Simple arithmetic demonstration."
+                ]
+            },
+            random_numbers: {
+                title: "C++ Random Numbers",
+                desc: "Generate random numbers using <code>&lt;cstdlib&gt;</code> and <code>&lt;ctime&gt;</code>.",
+                code: `#include <iostream>\n#include <cstdlib>\n#include <ctime>\nusing namespace std;\n\nint main() {\n    srand(time(0));\n    int randomNum = rand() % 100 + 1;\n    cout << "Random number (1-100): " << randomNum;\n    return 0;\n}`,
+                explanation: [
+                    "Useful for games, simulations, and random sampling."
+                ]
+            },
+            ref_keywords: {
+                title: "C++ Keywords Reference",
+                desc: "List of reserved keywords in C++.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    // Keywords include: int, float, double, class, public, private,\n    // virtual, template, namespace, throw, try, catch, etc.\n    cout << "C++ has over 90 reserved keywords.";\n    return 0;\n}`,
+                explanation: [
+                    "Keywords cannot be used as variable or function names."
+                ]
+            },
+            ref_iostream: {
+                title: "C++ <iostream> Library",
+                desc: "Standard input/output stream objects.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Standard output with cin and cout.";\n    return 0;\n}`,
+                explanation: [
+                    "Core library for console I/O."
+                ]
+            },
+            ref_fstream: {
+                title: "C++ <fstream> Library",
+                desc: "File stream library for disk file read/write operations.",
+                code: `#include <iostream>\n#include <fstream>\nusing namespace std;\n\nint main() {\n    ofstream file("test.txt");\n    file << "Testing fstream";\n    file.close();\n    cout << "Done.";\n    return 0;\n}`,
+                explanation: [
+                    "Handles persistent file storage."
+                ]
+            },
+            ref_cmath: {
+                title: "C++ <cmath> Library",
+                desc: "Mathematical functions library.",
+                code: `#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    cout << "Power 2^3 = " << pow(2, 3);\n    return 0;\n}`,
+                explanation: [
+                    "Trigonometric, logarithmic, and exponential functions."
+                ]
+            },
+            ref_string: {
+                title: "C++ <string> Library",
+                desc: "Standard string class and manipulation utilities.",
+                code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string s = "Hello C++";\n    cout << s.substr(0, 5);\n    return 0;\n}`,
+                explanation: [
+                    "Dynamic text handling."
+                ]
+            },
+            ref_cstring: {
+                title: "C++ <cstring> Library",
+                desc: "C-style string manipulation functions (strcpy, strlen, strcmp).",
+                code: `#include <iostream>\n#include <cstring>\nusing namespace std;\n\nint main() {\n    char str[] = "Hello";\n    cout << "Length: " << strlen(str);\n    return 0;\n}`,
+                explanation: [
+                    "Low-level string operations on character arrays."
+                ]
+            },
+            ref_ctime: {
+                title: "C++ <ctime> Library",
+                desc: "Date and time manipulation library.",
+                code: `#include <iostream>\n#include <ctime>\nusing namespace std;\n\nint main() {\n    time_t t = time(0);\n    cout << "Epoch seconds: " << t;\n    return 0;\n}`,
+                explanation: [
+                    "Time calculations and formatting."
+                ]
+            },
+            ref_vector: {
+                title: "C++ <vector> Library",
+                desc: "Dynamic array container reference.",
+                code: `#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> v = {10, 20, 30};\n    cout << "Capacity: " << v.capacity();\n    return 0;\n}`,
+                explanation: [
+                    "Dynamic contiguous storage."
+                ]
+            },
+            ref_algorithm: {
+                title: "C++ <algorithm> Library",
+                desc: "Sorting, searching, and manipulating algorithms.",
+                code: `#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    vector<int> v = {4, 1, 8, 3};\n    auto min_el = min_element(v.begin(), v.end());\n    cout << "Min element: " << *min_el;\n    return 0;\n}`,
+                explanation: [
+                    "Powerful generic algorithms for STL containers."
+                ]
+            }
+        };
+
+        // Render Sidebar Navigation
+        function renderSidebar() {
+            const navMenu = document.getElementById('nav-menu');
+            let html = '';
+
+            tutorials.forEach(cat => {
+                html += `<div class="space-y-1">`;
+                html += `<div class="font-bold text-xs uppercase text-gray-400 dark:text-gray-500 tracking-wider mb-2">${cat.category}</div>`;
+                cat.items.forEach(item => {
+                    html += `<a href="#" onclick="loadTopic('${item.id}')" data-id="${item.id}" class="nav-item block px-3 py-1.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors font-medium">${item.title}</a>`;
+                });
+                html += `</div>`;
+            });
+
+            navMenu.innerHTML = html;
+        }
+
+        // Find previous and next topic IDs for navigation buttons
+        function getPrevNext(currentId) {
+            let flatList = [];
+            tutorials.forEach(cat => {
+                cat.items.forEach(item => flatList.push(item.id));
+            });
+            let index = flatList.indexOf(currentId);
+            return {
+                prev: index > 0 ? flatList[index - 1] : null,
+                next: index < flatList.length - 1 ? flatList[index + 1] : null
+            };
+        }
+
+        // Load Topic Content into Main Panel
+        function loadTopic(id) {
+            const data = contentData[id] || contentData['home'];
+            const panel = document.getElementById('main-content-panel');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            // Highlight active sidebar item
+            navItems.forEach(el => {
+                if(el.getAttribute('data-id') === id) {
+                    el.classList.add('bg-w3green', 'text-white', 'dark:bg-w3green');
+                    el.classList.remove('text-gray-700', 'dark:text-gray-300', 'hover:bg-gray-200', 'dark:hover:bg-gray-800');
+                } else {
+                    el.classList.remove('bg-w3green', 'text-white', 'dark:bg-w3green');
+                    el.classList.add('text-gray-700', 'dark:text-gray-300', 'hover:bg-gray-200', 'dark:hover:bg-gray-800');
+                }
+            });
+
+            const navLinks = getPrevNext(id);
+
+            panel.innerHTML = `
+                <div class="max-w-4xl mx-auto space-y-8 pb-12 animate-fadeIn">
+                    <!-- Breadcrumbs & Title -->
+                    <div class="border-b border-gray-200 dark:border-gray-800 pb-4">
+                        <span class="text-w3green text-xs font-bold uppercase tracking-wider">C++ Tutorial</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mt-1">${data.title}</h1>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">${data.desc}</p>
+
+                    <!-- Explanation Points -->
+                    <div class="space-y-3 bg-gray-50 dark:bg-[#252833] p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="font-bold text-lg mb-2 text-w3green"><i class="fa-solid fa-circle-check mr-2"></i>Key Concepts</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                            ${data.explanation.map(exp => `<li>${exp}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Try it Yourself Interactive Code Editor -->
+                    <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+                        <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                                <span class="text-xs text-gray-400 font-mono ml-2">main.cpp</span>
+                            </div>
+                            <button onclick="runCode('${id}')" class="bg-w3green hover:bg-w3greenDark text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-all shadow flex items-center space-x-1.5">
+                                <i class="fa-solid fa-play"></i><span>Run Code ❯</span>
+                            </button>
+                        </div>
+                        <div class="p-4 bg-gray-950">
+                            <textarea id="code-${id}" class="w-full h-48 bg-transparent text-green-400 font-mono text-sm resize-none focus:outline-none" spellcheck="false">${data.code}</textarea>
+                        </div>
+                        <div class="bg-gray-900 border-t border-gray-800 p-4">
+                            <div class="text-xs font-bold uppercase text-gray-400 mb-1">Simulated Output:</div>
+                            <div id="output-${id}" class="bg-black/50 p-3 rounded font-mono text-sm text-gray-300 min-h-[3rem] whitespace-pre-wrap border border-gray-800">Click "Run Code ❯" to execute program...</div>
+                        </div>
+                    </div>
+
+                    <!-- Prev / Next Navigation Buttons -->
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-200 dark:border-gray-800">
+                        <button ${navLinks.prev ? `onclick="loadTopic('${navLinks.prev}')"` : 'disabled'} class="px-5 py-2.5 rounded-lg font-semibold text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Previous
+                        </button>
+                        <button ${navLinks.next ? `onclick="loadTopic('${navLinks.next}')"` : 'disabled'} class="px-5 py-2.5 rounded-lg font-semibold text-sm bg-w3green hover:bg-w3greenDark text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow">
+                            Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            // Scroll main panel back to top
+            panel.scrollTop = 0;
+            // Close mobile sidebar if open
+            document.getElementById('sidebar').classList.add('-translate-x-full', 'lg:translate-x-0', 'absolute', 'lg:relative');
+        }
+
+        // Simulate C++ Code Execution
+        function runCode(id) {
+            const codeEl = document.getElementById(`code-${id}`);
+            const outputEl = document.getElementById(`output-${id}`);
+            const code = codeEl.value;
+
+            outputEl.innerHTML = '<span class="text-yellow-400 animate-pulse">Compiling and executing...</span>';
+            
+            setTimeout(() => {
+                // Basic pattern matching simulation for interactive educational feedback
+                let simOutput = "";
+                if (code.includes('cout')) {
+                    // Extract strings inside cout << "..."
+                    let matches = code.match(/cout\s*<<\s*"([^"]*)"/g);
+                    if (matches) {
+                        matches.forEach(m => {
+                            let text = m.match(/"([^"]*)"/)[1];
+                            simOutput += text + "\n";
+                        });
+                    }
+                    let varMatches = code.match(/cout\s*<<\s*([a-zA-Z0-9_]+)/g);
+                    if (varMatches && !simOutput) {
+                        simOutput = "42\n";
+                    }
+                }
+                if (!simOutput) {
+                    simOutput = "Program executed successfully with exit code 0.";
+                }
+                outputEl.innerHTML = simOutput.trim();
+            }, 400);
+        }
+
+        // Real-time Global Search Functionality
+        const globalSearch = document.getElementById('global-search');
+        const mobileSearch = document.getElementById('mobile-search');
+        const searchDropdown = document.getElementById('search-dropdown');
+
+        function handleSearchInput(e) {
+            const query = e.target.value.toLowerCase().trim();
+            if(!query) {
+                searchDropdown.classList.add('hidden');
+                return;
+            }
+
+            let results = [];
+            tutorials.forEach(cat => {
+                cat.items.forEach(item => {
+                    if(item.title.toLowerCase().includes(query) || item.id.includes(query)) {
+                        results.push(item);
+                    }
+                });
+            });
+
+            if(results.length > 0) {
+                searchDropdown.innerHTML = results.map(r => `
+                    <div onclick="loadTopic('${r.id}'); searchDropdown.classList.add('hidden');" class="px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer text-sm font-medium border-b border-gray-100 dark:border-gray-700 last:border-b-0">
+                        ${r.title}
+                    </div>
+                `).join('');
+                searchDropdown.classList.remove('hidden');
+            } else {
+                searchDropdown.innerHTML = `<div class="px-4 py-3 text-sm text-gray-500">No tutorials found matching "${query}"</div>`;
+                searchDropdown.classList.remove('hidden');
+            }
+        }
+
+        globalSearch.addEventListener('input', handleSearchInput);
+        mobileSearch.addEventListener('input', handleSearchInput);
+
+        // Hide search dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if(!globalSearch.contains(e.target) && !searchDropdown.contains(e.target)) {
+                searchDropdown.classList.add('hidden');
+            }
+        });
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.className = "fa-solid fa-sun";
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.className = "fa-solid fa-moon";
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = "fa-solid fa-moon";
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = "fa-solid fa-sun";
+            }
+        });
+
+        // Sidebar Mobile Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebar.classList.toggle('absolute');
+            sidebar.classList.toggle('z-40');
+        });
+
+        // Authentication Modal Logic
+        const authModal = document.getElementById('auth-modal');
+        const authModalBox = document.getElementById('auth-modal-box');
+        const openAuthModal = document.getElementById('open-auth-modal');
+        const closeAuthModal = document.getElementById('close-auth-modal');
+        const tabSignin = document.getElementById('tab-signin');
+        const tabSignup = document.getElementById('tab-signup');
+        const formSignin = document.getElementById('form-signin');
+        const formSignup = document.getElementById('form-signup');
+        const authMsg = document.getElementById('auth-msg');
+
+        openAuthModal.addEventListener('click', () => {
+            authModal.classList.remove('hidden');
+            setTimeout(() => {
+                authModal.classList.remove('opacity-0');
+                authModalBox.classList.remove('scale-95');
+            }, 10);
+        });
+
+        function closeModal() {
+            authModal.classList.add('opacity-0');
+            authModalBox.classList.add('scale-95');
+            setTimeout(() => {
+                authModal.classList.add('hidden');
+                authMsg.innerText = '';
+            }, 300);
+        }
+
+        closeAuthModal.addEventListener('click', closeModal);
+        authModal.addEventListener('click', (e) => {
+            if(e.target === authModal) closeModal();
+        });
+
+        tabSignin.addEventListener('click', () => {
+            tabSignin.className = "flex-1 pb-3 font-semibold text-w3green border-b-2 border-w3green transition-colors";
+            tabSignup.className = "flex-1 pb-3 font-semibold text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors";
+            formSignin.classList.remove('hidden');
+            formSignup.classList.add('hidden');
+            authMsg.innerText = '';
+        });
+
+        tabSignup.addEventListener('click', () => {
+            tabSignup.className = "flex-1 pb-3 font-semibold text-w3green border-b-2 border-w3green transition-colors";
+            tabSignin.className = "flex-1 pb-3 font-semibold text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors";
+            formSignup.classList.remove('hidden');
+            formSignin.classList.add('hidden');
+            authMsg.innerText = '';
+        });
+
+        function handleAuth(event, type) {
+            event.preventDefault();
+            authMsg.className = "mt-4 text-center text-sm font-medium text-w3green animate-pulse";
+            authMsg.innerText = type === 'signin' ? "Signing in successfully..." : "Account created successfully!";
+            setTimeout(() => {
+                closeModal();
+                openAuthModal.innerHTML = '<i class="fa-solid fa-user-check mr-1.5"></i> My Account';
+            }, 1200);
+        }
+
+        // Initialize application on load
+        window.onload = function() {
+            renderSidebar();
+            loadTopic('home');
+        };
+    </script>
+</body>
+</html>
