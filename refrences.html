@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Reference - C++ Master</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        w3green: '#04AA6D',
+                        w3greenDark: '#038858',
+                        w3dark: '#1d1e22',
+                        w3darker: '#121214',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; scrollbar-color: transparent; }</style>
+</head>
+<body class="h-full bg-white dark:bg-w3darker text-gray-800 dark:text-gray-100 flex flex-col transition-colors duration-200">
+
+    <!-- Header Navigation -->
+    <header class="h-16 bg-gray-900 text-white flex items-center justify-between px-6 shadow-md shrink-0 z-30">
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold tracking-wider">
+                <span class="text-w3green"><i class="fa-solid fa-code"></i></span>
+                <span>C++<span class="text-w3green font-light text-sm ml-1 bg-w3green/20 px-2 py-0.5 rounded">Master</span></span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="index.html" class="text-gray-300 hover:text-w3green transition-colors">Home</a>
+                <a href="tutor.html" class="text-gray-300 hover:text-w3green transition-colors">Tutorial</a>
+                <a href="reference.html" class="text-w3green transition-colors">Reference</a>
+                <a href="about.html" class="text-gray-300 hover:text-w3green transition-colors">About Us</a>
+                <a href="contact.html" class="text-gray-300 hover:text-w3green transition-colors">Contact</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors" title="Toggle Theme">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Reference Content -->
+    <main class="flex-1 overflow-y-auto px-6 py-12">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <div class="border-b border-gray-200 dark:border-gray-800 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-w3green text-xs font-bold uppercase tracking-wider">Complete Documentation</span>
+                    <h1 class="text-4xl font-bold mt-1">C++ Reference</h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1 text-sm">Comprehensive list of C++ keywords, operators, and math functions with descriptions.</p>
+                </div>
+                <!-- Search Filter Box -->
+                <div class="relative w-full md:w-72">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                        <i class="fa-solid fa-search"></i>
+                    </span>
+                    <input type="text" id="searchInput" placeholder="Search reference..." class="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-700 rounded-xl text-sm focus:outline-none focus:border-w3green dark:focus:border-w3green transition-colors">
+                </div>
+            </div>
+
+            <!-- Keywords & Operators Section -->
+            <div class="space-y-4">
+                <h2 class="text-2xl font-bold text-w3green flex items-center">
+                    <i class="fa-solid fa-key mr-2 text-lg"></i> Keywords & Operators
+                </h2>
+                <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <table class="w-full text-left border-collapse" id="keywordsTable">
+                        <thead>
+                            <tr class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">
+                                <th class="p-4 font-semibold w-1/3">Keyword / Operator</th>
+                                <th class="p-4 font-semibold w-2/3">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-800 text-sm">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">&amp;&amp;</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Logical AND operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">and</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the logical &amp;&amp; operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">and_eq</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the &amp;= assignment operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">auto</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Automatically detects the type of a variable based on the value you assign to it</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">bitand</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the &amp; bitwise operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">bitor</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the | bitwise operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">bool</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A data type that can only store true or false values</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">break</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Breaks out of a loop or a switch block</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">case</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Marks a block of code in switch statements</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">catch</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Catches exceptions generated by try statements</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">char</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A data type that can store a single character</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">class</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Defines a class</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">compl</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the ~ bitwise operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">const</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Defines a variable or parameter as a constant (unchangeable) or specifies that a class method does not modify attributes of the class</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">continue</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Continues to the next iteration of a loop</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">default</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Specifies the default block of code in a switch statement</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">delete</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Frees dynamic memory</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">do</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Used together with while to create a do/while loop</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">double</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A data type that is usually 64 bits long which can store fractional numbers</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">else</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Used in conditional statements</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">enum</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Declares an enumerated type</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">false</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A boolean value equivalent to 0</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">float</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A data type that is usually 32 bits long which can store fractional numbers</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">for</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Creates a for loop</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">friend</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Specifies classes and functions which have access to private and protected members</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">goto</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Jumps to a line of code specified by a label</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">if</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Makes a conditional statement</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">int</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A data type that is usually 32 bits long which can store whole numbers</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">long</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Ensures that an integer is at least 32 bits long (use long long to ensure 64 bits)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">namespace</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Declares a namespace</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">new</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Reserves dynamic memory</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">not</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the logical ! operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">not_eq</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the != comparison operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">or</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the logical || operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">or_eq</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the |= assignment operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">private</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An access modifier which makes a member only accessible within the declared class</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">protected</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An access modifier which makes a member only accessible within the declared class and its children</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">public</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An access modifier which makes a member accessible from anywhere</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">return</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Used to return a value from a function</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">short</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Reduces the size of an integer to 16 bits</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">signed</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Specifies that an int or char can represent positive and negative values (this is the default so the keyword is not usually necessary)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">sizeof</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An operator that returns the amount of memory occupied by a variable or data type</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">static</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Specifies that an attribute or method belongs to the class itself instead of instances of the class. Specifies that a variable in a function keeps its value after the function ends.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">struct</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Defines a structure</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">switch</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Selects one of many code blocks to be executed</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">template</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Declares a template class or template function</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">this</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A variable that is available inside class methods and constructors which contains a pointer to a class instance</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">throw</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Creates a custom error which can be caught by a try...catch statement</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">true</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">A boolean value equivalent to 1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">try</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Creates a try...catch statement</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">typedef</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Defines a custom data type</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">unsigned</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Specifies that an int or char should only represent positive values which allows for storing numbers up to twice as large</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">using</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Allows variables and functions from a namespace to be used without the namespace's prefix</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">virtual</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Specifies that a class method is virtual</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">void</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Indicates a function that does not return a value or specifies a pointer to a data with an unspecified type</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">while</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Creates a while loop</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">xor</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the ^ bitwise operator</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">xor_eq</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">An alternative way to write the ^= assignment operator</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- C++ Math Functions Section -->
+            <div class="space-y-4 pt-4">
+                <h2 class="text-2xl font-bold text-w3green flex items-center">
+                    <i class="fa-solid fa-square-root-variable mr-2 text-lg"></i> C++ Math Functions (&lt;cmath&gt;)
+                </h2>
+                <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <table class="w-full text-left border-collapse" id="mathTable">
+                        <thead>
+                            <tr class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">
+                                <th class="p-4 font-semibold w-1/3">Function</th>
+                                <th class="p-4 font-semibold w-2/3">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-800 text-sm">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">abs(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the absolute value of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">acos(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the arccosine of x, in radians</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">acosh(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the hyperbolic arccosine of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">asin(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the arcsine of x, in radians</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">asinh(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the hyperbolic arcsine of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">atan(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">atan2(y, x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">atanh(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the hyperbolic arctangent of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">cbrt(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the cube root of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">ceil(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of x rounded up to its nearest integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">copysign(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the first floating point x with the sign of the second floating point y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">cos(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the cosine of x (x is in radians)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">cosh(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the hyperbolic cosine of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">exp(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of E^x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">exp2(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of 2^x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">expm1(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns e^x - 1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">erf(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of the error function at x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">erfc(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of the complementary error function at x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">fabs(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the absolute value of a floating x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">fdim(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the positive difference between x and y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">floor(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of x rounded down to its nearest integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">fma(x, y, z)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x*y+z without losing precision</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">fmax(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the highest value of a floating x and y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">fmin(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the lowest value of a floating x and y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">fmod(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the floating point remainder of x/y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">frexp(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">With x expressed as m*2^n, returns the value of m (a value between 0.5 and 1.0) and writes the value of n to the memory at the pointer y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">hypot(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns sqrt(x^2 + y^2) without intermediate overflow or underflow</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">ilogb(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the integer part of the floating-point base logarithm of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">ldexp(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x*2^y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">lgamma(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the logarithm of the absolute value of the gamma function at x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">llrint(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Rounds x to a nearby integer and returns the result as a long long integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">llround(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Rounds x to the nearest integer and returns the result as a long long integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">log(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the natural logarithm of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">log10(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the base 10 logarithm of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">log1p(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the natural logarithm of x+1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">log2(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the base 2 logarithm of the absolute value of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">logb(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the floating-point base logarithm of the absolute value of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">lrint(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Rounds x to a nearby integer and returns the result as a long integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">lround(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Rounds x to the nearest integer and returns the result as a long integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">modf(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the decimal part of x and writes the integer part to the memory at the pointer y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">nan(s)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns a NaN (Not a Number) value</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">nearbyint(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x rounded to a nearby integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">nextafter(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the closest floating point number to x in the direction of y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">nexttoward(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the closest floating point number to x in the direction of y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">pow(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of x to the power of y</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">remainder(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Return the remainder of x/y rounded to the nearest integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">remquo(x, y, z)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Calculates x/y rounded to the nearest integer, writes the result to the memory at the pointer z and returns the remainder</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">rint(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x rounded to a nearby integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">round(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x rounded to the nearest integer</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">scalbln(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x*R^y (R is usually 2)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">scalbn(x, y)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns x*R^y (R is usually 2)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">sin(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the sine of x (x is in radians)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">sinh(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the hyperbolic sine of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">sqrt(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the square root of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">tan(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the tangent of x (x is in radians)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">tanh(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the hyperbolic tangent of x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">tgamma(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the value of the gamma function at x</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                                <td class="p-4 font-mono font-bold text-w3green">trunc(x)</td>
+                                <td class="p-4 text-gray-600 dark:text-gray-300">Returns the integer part of x</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-6 text-center text-sm border-t border-gray-800">
+        <p>&copy; 2026 C++ Master Portal. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle Script
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.className = "fa-solid fa-sun";
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = "fa-solid fa-moon";
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = "fa-solid fa-sun";
+            }
+        });
+
+        // Live Search Filter Script
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const tables = [document.getElementById('keywordsTable'), document.getElementById('mathTable')];
+
+            tables.forEach(table => {
+                const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+                for (let row of rows) {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

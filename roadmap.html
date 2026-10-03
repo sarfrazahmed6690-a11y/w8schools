@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Roadmap & Syllabus - C++ Master</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        w3green: '#04AA6D',
+                        w3greenDark: '#038858',
+                        w3dark: '#1d1e22',
+                        w3darker: '#121214',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom Transparent / Sleek Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(4, 170, 109, 0.3);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(4, 170, 109, 0.6);
+        }
+    </style>
+</head>
+<body class="min-h-full bg-white dark:bg-w3darker text-gray-800 dark:text-gray-100 flex flex-col transition-colors duration-200">
+
+    <!-- Header Navigation -->
+    <header class="h-16 bg-gray-900 text-white flex items-center justify-between px-6 shadow-md shrink-0 z-30">
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold tracking-wider">
+                <span class="text-w3green"><i class="fa-solid fa-code"></i></span>
+                <span>C++<span class="text-w3green font-light text-sm ml-1 bg-w3green/20 px-2 py-0.5 rounded">Master</span></span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="index.html" class="text-gray-300 hover:text-w3green transition-colors">Home</a>
+                <a href="tutor.html" class="text-gray-300 hover:text-w3green transition-colors">Tutorial</a>
+                <a href="roadmap.html" class="text-w3green transition-colors">Roadmap</a>
+                <a href="reference.html" class="text-gray-300 hover:text-w3green transition-colors">Reference</a>
+                <a href="about.html" class="text-gray-300 hover:text-w3green transition-colors">About Us</a>
+                <a href="contact.html" class="text-gray-300 hover:text-w3green transition-colors">Contact</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors" title="Toggle Theme">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-12">
+        <div class="max-w-4xl mx-auto space-y-10">
+            
+            <!-- Page Header & Progress Dashboard Card -->
+            <div class="bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="text-w3green text-xs font-bold uppercase tracking-wider bg-w3green/10 px-3 py-1 rounded-full">Interactive Syllabus</span>
+                    <h1 class="text-3xl md:text-4xl font-bold">C++ Developer Roadmap</h1>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm max-w-lg">
+                        Check off topics as you master them. Your learning progress is automatically saved in your browser so you can monitor your journey from beginner to advanced C++ engineer.
+                    </p>
+                </div>
+                <!-- Progress Ring / Bar Stats -->
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-xl text-center min-w-[200px] shadow-sm">
+                    <div class="text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider">Overall Progress</div>
+                    <div class="text-3xl font-extrabold text-w3green mt-1" id="progress-percent">0%</div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 h-2.5 rounded-full mt-3 overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-w3green h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <div class="text-xs text-gray-400 mt-2"><span id="completed-count">0</span> of <span id="total-count">0</span> topics completed</div>
+                </div>
+            </div>
+
+            <!-- Roadmap Modules Container -->
+            <div class="space-y-8" id="roadmap-container">
+                
+                <!-- Module 1: Beginner Fundamentals -->
+                <div class="bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <h2 class="text-xl font-bold text-w3green flex items-center">
+                            <i class="fa-solid fa-seedling mr-2"></i> Phase 1: C++ Beginner Fundamentals
+                        </h2>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full font-medium">Core Basics</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="module-1">
+                        <!-- Items populated via JS -->
+                    </div>
+                </div>
+
+                <!-- Module 2: Control Flow & Functions -->
+                <div class="bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <h2 class="text-xl font-bold text-w3green flex items-center">
+                            <i class="fa-solid fa-code-branch mr-2"></i> Phase 2: Control Flow & Functions
+                        </h2>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full font-medium">Logic & Modularity</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="module-2"></div>
+                </div>
+
+                <!-- Module 3: Pointers, References & Memory -->
+                <div class="bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <h2 class="text-xl font-bold text-w3green flex items-center">
+                            <i class="fa-solid fa-memory mr-2"></i> Phase 3: Pointers & Dynamic Memory
+                        </h2>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full font-medium">Intermediate</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="module-3"></div>
+                </div>
+
+                <!-- Module 4: Object-Oriented Programming (OOP) -->
+                <div class="bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <h2 class="text-xl font-bold text-w3green flex items-center">
+                            <i class="fa-solid fa-cubes mr-2"></i> Phase 4: Object-Oriented Programming (OOP)
+                        </h2>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full font-medium">Classes & Objects</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="module-4"></div>
+                </div>
+
+                <!-- Module 5: Advanced C++ & STL -->
+                <div class="bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <h2 class="text-xl font-bold text-w3green flex items-center">
+                            <i class="fa-solid fa-rocket mr-2"></i> Phase 5: Advanced C++ & Standard Template Library (STL)
+                        </h2>
+                        <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full font-medium">Advanced</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="module-5"></div>
+                </div>
+
+            </div>
+
+            <!-- Reset Progress Button -->
+            <div class="flex justify-center pt-4">
+                <button id="reset-progress" class="text-xs font-semibold text-red-500 hover:text-red-600 bg-red-500/10 hover:bg-red-500/20 px-4 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-rotate-right mr-1.5"></i> Reset All Progress
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer (Unfixed, natural document flow) -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-6 text-center text-sm border-t border-gray-800 mt-auto">
+        <p>&copy; 2026 C++ Master Portal. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle Script
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.className = "fa-solid fa-sun";
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = "fa-solid fa-moon";
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = "fa-solid fa-sun";
+            }
+        });
+
+        // Roadmap Syllabus Data Structure
+        const roadmapData = {
+            1: [
+                { id: "m1_1", title: "Introduction & Syntax", desc: "Setting up IDE, structure of a C++ program, output with cout." },
+                { id: "m1_2", title: "Variables & Data Types", desc: "int, float, double, char, bool, and type modifiers." },
+                { id: "m1_3", title: "User Input & Operators", desc: "Using cin, arithmetic operators, assignment and increment." },
+                { id: "m1_4", title: "Strings & Math Functions", desc: "Handling text strings and cmath library functions." }
+            ],
+            2: [
+                { id: "m2_1", title: "Conditional Statements", desc: "if, else, else if, and switch case statements." },
+                { id: "m2_2", title: "Loops (While & For)", desc: "while loops, do-while loops, and for loop iterations." },
+                { id: "m2_3", title: "Break & Continue", desc: "Controlling loop execution and skipping iterations." },
+                { id: "m2_4", title: "Functions & Parameters", desc: "Defining functions, passing arguments by value, and return types." }
+            ],
+            3: [
+                { id: "m3_1", title: "Arrays & Vectors", desc: "Fixed-size arrays, multi-dimensional arrays, and dynamic std::vector." },
+                { id: "m3_2", title: "Pointers & Memory Addresses", desc: "Memory addresses, pointer declaration, and dereferencing (*)." },
+                { id: "m3_3", title: "References", desc: "Reference variables and passing arguments by reference." },
+                { id: "m3_4", title: "Dynamic Memory Allocation", desc: "Using new and delete operators for heap memory." }
+            ],
+            4: [
+                { id: "m4_1", title: "Classes & Objects", desc: "Creating classes, public/private access specifiers, and member methods." },
+                { id: "m4_2", title: "Constructors & Destructors", desc: "Default and parameterized constructors, and object cleanup." },
+                { id: "m4_3", title: "Encapsulation & Inheritance", desc: "Getters/setters and base/derived class inheritance." },
+                { id: "m4_4", title: "Polymorphism & Virtual Functions", desc: "Method overriding, virtual functions, and runtime polymorphism." }
+            ],
+            5: [
+                { id: "m5_1", title: "Exception Handling", desc: "try, catch, and throw blocks for robust error management." },
+                { id: "m5_2", title: "Templates (Generics)", desc: "Function templates and class templates for generic programming." },
+                { id: "m5_3", title: "STL Containers", desc: "std::map, std::set, std::list, std::stack, and std::queue." },
+                { id: "m5_4", title: "Smart Pointers", desc: "std::unique_ptr, std::shared_ptr, and RAII memory safety." }
+            ]
+        };
+
+        // Render Roadmap Items & Load Saved State
+        function renderRoadmap() {
+            let totalTopics = 0;
+            let completedTopics = 0;
+            let savedProgress = JSON.parse(localStorage.getItem('cpp_roadmap_progress') || '{}');
+
+            for (let moduleId in roadmapData) {
+                const container = document.getElementById(`module-${moduleId}`);
+                if (!container) continue;
+                container.innerHTML = '';
+
+                roadmapData[moduleId].forEach(item => {
+                    totalTopics++;
+                    const isChecked = savedProgress[item.id] === true;
+                    if (isChecked) completedTopics++;
+
+                    const card = document.createElement('div');
+                    card.className = `p-4 rounded-xl border transition-all cursor-pointer flex items-start space-x-3 select-none ${
+                        isChecked 
+                            ? 'bg-w3green/5 border-w3green/40 dark:bg-w3green/10 dark:border-w3green/40' 
+                            : 'bg-gray-50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700/60 hover:border-w3green/50'
+                    }`;
+                    card.onclick = () => toggleTopic(item.id);
+
+                    card.innerHTML = `
+                        <div class="mt-0.5 flex-shrink-0">
+                            <div class="w-5 h-5 rounded-md border flex items-center justify-center transition-colors ${
+                                isChecked 
+                                    ? 'bg-w3green border-w3green text-white' 
+                                    : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800'
+                            }">
+                                ${isChecked ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                            </div>
+                        </div>
+                        <div class="space-y-1 flex-1">
+                            <h3 class="font-semibold text-sm ${isChecked ? 'text-w3green dark:text-w3green font-bold' : ''}">${item.title}</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">${item.desc}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            // Update Progress Stats
+            const percent = totalTopics > 0 ? Math.round((completedTopics / totalTopics) * 100) : 0;
+            document.getElementById('progress-percent').innerText = percent + '%';
+            document.getElementById('progress-bar-fill').style.width = percent + '%';
+            document.getElementById('completed-count').innerText = completedTopics;
+            document.getElementById('total-count').innerText = totalTopics;
+        }
+
+        function toggleTopic(id) {
+            let savedProgress = JSON.parse(localStorage.getItem('cpp_roadmap_progress') || '{}');
+            savedProgress[id] = !savedProgress[id];
+            localStorage.setItem('cpp_roadmap_progress', JSON.stringify(savedProgress));
+            renderRoadmap();
+        }
+
+        document.getElementById('reset-progress').onclick = () => {
+            if (confirm("Are you sure you want to reset all your roadmap progress?")) {
+                localStorage.removeItem('cpp_roadmap_progress');
+                renderRoadmap();
+            }
+        };
+
+        // Initial Render on Load
+        renderRoadmap();
+    </script>
+</body>
+</html>
