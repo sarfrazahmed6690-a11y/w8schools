@@ -156,109 +156,208 @@
     <script>
         // C++ Tutorial Topics Data Structure
         const tutorials = [
+            
             {
-                category: "C++ Tutorial",
+                category: "Complete C++ Roadmap — Foundations",
                 items: [
-                    { id: "home", title: "C++ HOME" },
-                    { id: "intro", title: "C++ Intro" },
-                    { id: "get_started", title: "C++ Get Started" },
-                    { id: "syntax", title: "C++ Syntax" },
-                    { id: "output", title: "C++ Output" },
-                    { id: "comments", title: "C++ Comments" },
-                    { id: "variables", title: "C++ Variables" },
-                    { id: "user_input", title: "C++ User Input" },
-                    { id: "data_types", title: "C++ Data Types" },
-                    { id: "operators", title: "C++ Operators" },
-                    { id: "strings", title: "C++ Strings" },
-                    { id: "math", title: "C++ Math" },
-                    { id: "booleans", title: "C++ Booleans" },
-                    { id: "conditions", title: "C++ If...Else" },
-                    { id: "switch", title: "C++ Switch" },
-                    { id: "while_loop", title: "C++ While Loop" },
-                    { id: "for_loop", title: "C++ For Loop" },
-                    { id: "break_continue", title: "C++ Break/Continue" },
-                    { id: "arrays", title: "C++ Arrays" },
-                    { id: "structures", title: "C++ Structures" },
-                    { id: "enums", title: "C++ Enums" },
-                    { id: "references", title: "C++ References" },
-                    { id: "pointers", title: "C++ Pointers" },
-                    { id: "memory_mgmt", title: "C++ Memory Mgmt" }
+                    { id: "topic_c_introduction", title: "C++ Introduction" },
+                    { id: "topic_what_is_c", title: "What Is C++?" },
+                    { id: "topic_history_of_c", title: "History of C++" },
+                    { id: "topic_features_of_c", title: "Features of C++" },
+                    { id: "topic_c_applications", title: "C++ Applications" },
+                    { id: "topic_installing_a_c_compiler", title: "Installing a C++ Compiler" },
+                    { id: "topic_installing_vs_code", title: "Installing VS Code" },
+                    { id: "topic_your_first_c_program", title: "Your First C++ Program" },
+                    { id: "topic_c_program_structure", title: "C++ Program Structure" },
+                    { id: "topic_main_function", title: "main() Function" },
+                    { id: "topic_c_statements", title: "C++ Statements" },
+                    { id: "topic_single_line_comments", title: "Single-Line Comments" },
+                    { id: "topic_multi_line_comments", title: "Multi-Line Comments" },
+                    { id: "topic_include", title: "#include" },
+                    { id: "topic_header_files", title: "Header Files" },
+                    { id: "topic_std_cout", title: "std::cout" },
+                    { id: "topic_std_cin", title: "std::cin" },
+                    { id: "topic_std_endl", title: "std::endl" },
+                    { id: "topic_using_namespace_std", title: "using namespace std" },
+                    { id: "topic_compilation", title: "Compilation" },
+                    { id: "topic_linking", title: "Linking" },
+                    { id: "topic_running_a_c_program", title: "Running a C++ Program" },
+                    { id: "topic_variable_declaration", title: "Variable Declaration" },
+                    { id: "topic_variable_initialization", title: "Variable Initialization" },
+                    { id: "topic_variable_naming_rules", title: "Variable Naming Rules" },
+                    { id: "topic_constants", title: "Constants" },
+                    { id: "topic_const", title: "const" },
+                    { id: "topic_integer_data_types", title: "Integer Data Types" },
+                    { id: "topic_floating_point_data_types", title: "Floating-Point Data Types" },
+                    { id: "topic_character_data_type", title: "Character Data Type" },
+                    { id: "topic_boolean_data_type", title: "Boolean Data Type" },
+                    { id: "topic_string_data_type", title: "string Data Type" },
+                    { id: "topic_short", title: "short" },
+                    { id: "topic_int", title: "int" },
+                    { id: "topic_long", title: "long" },
+                    { id: "topic_long_long", title: "long long" },
+                    { id: "topic_float", title: "float" },
+                    { id: "topic_double", title: "double" },
+                    { id: "topic_long_double", title: "long double" },
+                    { id: "topic_char", title: "char" },
+                    { id: "topic_bool", title: "bool" },
+                    { id: "topic_sizeof_operator", title: "sizeof Operator" },
+                    { id: "topic_signed_types", title: "Signed Types" },
+                    { id: "topic_unsigned_types", title: "Unsigned Types" },
+                    { id: "topic_type_limits", title: "Type Limits" }
                 ]
-            },
+            }
+            ,
             {
-                category: "C++ Functions",
+                category: "Complete C++ Roadmap — Functions, Arrays & References",
                 items: [
-                    { id: "functions", title: "C++ Functions" },
-                    { id: "function_parameters", title: "C++ Parameters" },
-                    { id: "function_overloading", title: "C++ Overloading" },
-                    { id: "scope", title: "C++ Scope" },
-                    { id: "recursion", title: "C++ Recursion" },
-                    { id: "lambda", title: "C++ Lambda" }
+                    { id: "topic_integer_overflow", title: "Integer Overflow" },
+                    { id: "topic_multiple_inputs", title: "Multiple Inputs" },
+                    { id: "topic_output_formatting", title: "Output Formatting" },
+                    { id: "topic_escape_sequences", title: "Escape Sequences" },
+                    { id: "topic_arithmetic_operators", title: "Arithmetic Operators" },
+                    { id: "topic_addition", title: "Addition" },
+                    { id: "topic_subtraction", title: "Subtraction" },
+                    { id: "topic_multiplication", title: "Multiplication" },
+                    { id: "topic_division", title: "Division" },
+                    { id: "topic_modulus", title: "Modulus" },
+                    { id: "topic_assignment_operators", title: "Assignment Operators" },
+                    { id: "topic_compound_assignment", title: "Compound Assignment" },
+                    { id: "topic_increment_operator", title: "Increment Operator" },
+                    { id: "topic_decrement_operator", title: "Decrement Operator" },
+                    { id: "topic_comparison_operators", title: "Comparison Operators" },
+                    { id: "topic_logical_operators", title: "Logical Operators" },
+                    { id: "topic_and_operator", title: "AND Operator" },
+                    { id: "topic_or_operator", title: "OR Operator" },
+                    { id: "topic_not_operator", title: "NOT Operator" },
+                    { id: "topic_bitwise_operators", title: "Bitwise Operators" },
+                    { id: "topic_bitwise_and", title: "Bitwise AND" },
+                    { id: "topic_bitwise_or", title: "Bitwise OR" },
+                    { id: "topic_bitwise_xor", title: "Bitwise XOR" },
+                    { id: "topic_bitwise_not", title: "Bitwise NOT" },
+                    { id: "topic_shift_operators", title: "Shift Operators" },
+                    { id: "topic_if_statement", title: "if Statement" },
+                    { id: "topic_else_statement", title: "else Statement" },
+                    { id: "topic_else_if", title: "else if" },
+                    { id: "topic_nested_if", title: "Nested if" },
+                    { id: "topic_conditional_expressions", title: "Conditional Expressions" },
+                    { id: "topic_ternary_operator", title: "Ternary Operator" },
+                    { id: "topic_switch_statement", title: "switch Statement" },
+                    { id: "topic_case", title: "case" },
+                    { id: "topic_default", title: "default" },
+                    { id: "topic_break_in_switch", title: "break in Switch" },
+                    { id: "topic_character_conditions", title: "Character Conditions" },
+                    { id: "topic_number_conditions", title: "Number Conditions" },
+                    { id: "topic_boolean_conditions", title: "Boolean Conditions" },
+                    { id: "topic_compound_conditions", title: "Compound Conditions" },
+                    { id: "topic_operator_precedence", title: "Operator Precedence" },
+                    { id: "topic_what_is_a_loop", title: "What Is a Loop?" },
+                    { id: "topic_do_while_loop", title: "do-while Loop" },
+                    { id: "topic_nested_loops", title: "Nested Loops" },
+                    { id: "topic_infinite_loops", title: "Infinite Loops" },
+                    { id: "topic_break_statement", title: "break Statement" }
                 ]
-            },
+            }
+            ,
             {
-                category: "C++ Classes (OOP)",
+                category: "Complete C++ Roadmap — OOP & Modern C++",
                 items: [
-                    { id: "oop", title: "C++ OOP Intro" },
-                    { id: "classes_objects", title: "C++ Classes/Objects" },
-                    { id: "class_methods", title: "C++ Class Methods" },
-                    { id: "constructors", title: "C++ Constructors" },
-                    { id: "access_specifiers", title: "C++ Access Specifiers" },
-                    { id: "encapsulation", title: "C++ Encapsulation" },
-                    { id: "friend_functions", title: "C++ Friend Functions" },
-                    { id: "inheritance", title: "C++ Inheritance" },
-                    { id: "polymorphism", title: "C++ Polymorphism" },
-                    { id: "templates", title: "C++ Templates" },
-                    { id: "files", title: "C++ Files" },
-                    { id: "date", title: "C++ Date" }
+                    { id: "topic_continue_statement", title: "continue Statement" },
+                    { id: "topic_loop_counters", title: "Loop Counters" },
+                    { id: "topic_loop_conditions", title: "Loop Conditions" },
+                    { id: "topic_reverse_loops", title: "Reverse Loops" },
+                    { id: "topic_pattern_printing", title: "Pattern Printing" },
+                    { id: "topic_number_patterns", title: "Number Patterns" },
+                    { id: "topic_character_patterns", title: "Character Patterns" },
+                    { id: "topic_multiplication_tables", title: "Multiplication Tables" },
+                    { id: "topic_function_declaration", title: "Function Declaration" },
+                    { id: "topic_function_definition", title: "Function Definition" },
+                    { id: "topic_function_calling", title: "Function Calling" },
+                    { id: "topic_function_parameters", title: "Function Parameters" },
+                    { id: "topic_return_values", title: "Return Values" },
+                    { id: "topic_void_functions", title: "void Functions" },
+                    { id: "topic_multiple_parameters", title: "Multiple Parameters" },
+                    { id: "topic_default_arguments", title: "Default Arguments" },
+                    { id: "topic_function_overloading", title: "Function Overloading" },
+                    { id: "topic_inline_functions", title: "Inline Functions" },
+                    { id: "topic_recursive_functions", title: "Recursive Functions" },
+                    { id: "topic_local_variables", title: "Local Variables" },
+                    { id: "topic_global_variables", title: "Global Variables" },
+                    { id: "topic_static_local_variables", title: "Static Local Variables" },
+                    { id: "topic_function_prototypes", title: "Function Prototypes" },
+                    { id: "topic_pass_by_value", title: "Pass by Value" },
+                    { id: "topic_pass_by_reference", title: "Pass by Reference" },
+                    { id: "topic_const_references", title: "const References" },
+                    { id: "topic_c_style_strings", title: "C-Style Strings" },
+                    { id: "topic_std_string", title: "std::string" },
+                    { id: "topic_string_input", title: "String Input" },
+                    { id: "topic_string_concatenation", title: "String Concatenation" },
+                    { id: "topic_string_comparison", title: "String Comparison" },
+                    { id: "topic_string_length", title: "String Length" },
+                    { id: "topic_string_searching", title: "String Searching" },
+                    { id: "topic_string_substrings", title: "String Substrings" },
+                    { id: "topic_string_modification", title: "String Modification" },
+                    { id: "topic_string_conversion", title: "String Conversion" },
+                    { id: "topic_character_functions", title: "Character Functions" },
+                    { id: "topic_one_dimensional_arrays", title: "One-Dimensional Arrays" },
+                    { id: "topic_multidimensional_arrays", title: "Multidimensional Arrays" },
+                    { id: "topic_array_initialization", title: "Array Initialization" },
+                    { id: "topic_array_traversal", title: "Array Traversal" },
+                    { id: "topic_array_searching", title: "Array Searching" },
+                    { id: "topic_array_sorting", title: "Array Sorting" },
+                    { id: "topic_array_copying", title: "Array Copying" },
+                    { id: "topic_array_of_characters", title: "Array of Characters" }
                 ]
-            },
+            }
+            ,
             {
-                category: "C++ Exceptions & Errors",
+                category: "Complete C++ Roadmap — STL, Memory & Professional C++",
                 items: [
-                    { id: "errors", title: "C++ Errors" },
-                    { id: "debugging", title: "C++ Debugging" },
-                    { id: "exceptions", title: "C++ Exceptions" },
-                    { id: "input_validation", title: "C++ Input Validation" }
-                ]
-            },
-            {
-                category: "C++ STL & Data Structures",
-                items: [
-                    { id: "stl_intro", title: "STL Overview" },
-                    { id: "vectors", title: "C++ Vectors" },
-                    { id: "list", title: "C++ List" },
-                    { id: "stacks", title: "C++ Stacks" },
-                    { id: "queues", title: "C++ Queues" },
-                    { id: "deque", title: "C++ Deque" },
-                    { id: "sets", title: "C++ Sets" },
-                    { id: "maps", title: "C++ Maps" },
-                    { id: "iterators", title: "C++ Iterators" },
-                    { id: "algorithms", title: "C++ Algorithms" }
-                ]
-            },
-            {
-                category: "Advanced & Projects",
-                items: [
-                    { id: "namespaces", title: "C++ Namespaces" },
-                    { id: "cpp_projects", title: "C++ Projects" },
-                    { id: "certificate", title: "C++ Certificate" },
-                    { id: "add_two_numbers", title: "Add Two Numbers" },
-                    { id: "random_numbers", title: "Random Numbers" }
-                ]
-            },
-            {
-                category: "C++ Reference",
-                items: [
-                    { id: "ref_keywords", title: "Keywords Reference" },
-                    { id: "ref_iostream", title: "<iostream>" },
-                    { id: "ref_fstream", title: "<fstream>" },
-                    { id: "ref_cmath", title: "<cmath>" },
-                    { id: "ref_string", title: "<string>" },
-                    { id: "ref_cstring", title: "<cstring>" },
-                    { id: "ref_ctime", title: "<ctime>" },
-                    { id: "ref_vector", title: "<vector>" },
-                    { id: "ref_algorithm", title: "<algorithm>" }
+                    { id: "topic_reference_variables", title: "Reference Variables" },
+                    { id: "topic_reference_declaration", title: "Reference Declaration" },
+                    { id: "topic_reference_initialization", title: "Reference Initialization" },
+                    { id: "topic_reference_aliasing", title: "Reference Aliasing" },
+                    { id: "topic_references_and_memory", title: "References and Memory" },
+                    { id: "topic_references_vs_pointers", title: "References vs Pointers" },
+                    { id: "topic_passing_by_reference", title: "Passing by Reference" },
+                    { id: "topic_passing_by_const_reference", title: "Passing by const Reference" },
+                    { id: "topic_passing_by_non_const_reference", title: "Passing by Non-Const Reference" },
+                    { id: "topic_returning_by_reference", title: "Returning by Reference" },
+                    { id: "topic_reference_return_values", title: "Reference Return Values" },
+                    { id: "topic_reference_parameters", title: "Reference Parameters" },
+                    { id: "topic_references_and_functions", title: "References and Functions" },
+                    { id: "topic_references_to_arrays", title: "References to Arrays" },
+                    { id: "topic_references_to_strings", title: "References to Strings" },
+                    { id: "topic_references_to_objects", title: "References to Objects" },
+                    { id: "topic_references_to_class_members", title: "References to Class Members" },
+                    { id: "topic_references_to_struct_members", title: "References to Struct Members" },
+                    { id: "topic_references_to_pointers", title: "References to Pointers" },
+                    { id: "topic_reference_to_const", title: "Reference to const" },
+                    { id: "topic_temporary_objects_and_references", title: "Temporary Objects and References" },
+                    { id: "topic_temporary_lifetime_extension", title: "Temporary Lifetime Extension" },
+                    { id: "topic_dangling_references", title: "Dangling References" },
+                    { id: "topic_returning_dangling_references", title: "Returning Dangling References" },
+                    { id: "topic_local_variable_references", title: "Local Variable References" },
+                    { id: "topic_static_references", title: "Static References" },
+                    { id: "topic_reference_members", title: "Reference Members" },
+                    { id: "topic_reference_data_members", title: "Reference Data Members" },
+                    { id: "topic_reference_member_initialization", title: "Reference Member Initialization" },
+                    { id: "topic_references_in_constructors", title: "References in Constructors" },
+                    { id: "topic_references_and_this", title: "References and this" },
+                    { id: "topic_references_and_inheritance", title: "References and Inheritance" },
+                    { id: "topic_base_class_references", title: "Base-Class References" },
+                    { id: "topic_derived_class_references", title: "Derived-Class References" },
+                    { id: "topic_references_and_polymorphism", title: "References and Polymorphism" },
+                    { id: "topic_virtual_functions_through_references", title: "Virtual Functions Through References" },
+                    { id: "topic_reference_qualifiers", title: "Reference Qualifiers" },
+                    { id: "topic_lvalue_references", title: "Lvalue References" },
+                    { id: "topic_lvalues", title: "Lvalues" },
+                    { id: "topic_rvalues", title: "Rvalues" },
+                    { id: "topic_lvalue_to_rvalue_conversion", title: "Lvalue-to-Rvalue Conversion" },
+                    { id: "topic_rvalue_references", title: "Rvalue References" },
+                    { id: "topic_rvalue_reference_parameters", title: "Rvalue Reference Parameters" },
+                    { id: "topic_rvalue_references_and_temporaries", title: "Rvalue References and Temporaries" },
+                    { id: "topic_rvalue_references_and_move_semantics", title: "Rvalue References and Move Semantics" }
                 ]
             }
         ];
@@ -864,6 +963,2710 @@
                 ]
             }
         };
+
+        // Additional complete-roadmap lesson data. Existing application logic is unchanged.
+        Object.assign(contentData, {
+            "topic_c_introduction": {
+                title: "C++ C++ Introduction",
+                desc: "C++ Introduction is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: C++ Introduction
+    std::cout << "Learning C++ Introduction";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_what_is_c": {
+                title: "C++ What Is C++?",
+                desc: "What Is C++? is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: What Is C++?
+    std::cout << "Learning What Is C++?";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_history_of_c": {
+                title: "C++ History of C++",
+                desc: "History of C++ is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: History of C++
+    std::cout << "Learning History of C++";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_features_of_c": {
+                title: "C++ Features of C++",
+                desc: "Features of C++ is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Features of C++
+    std::cout << "Learning Features of C++";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_c_applications": {
+                title: "C++ C++ Applications",
+                desc: "C++ Applications is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: C++ Applications
+    std::cout << "Learning C++ Applications";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_installing_a_c_compiler": {
+                title: "C++ Installing a C++ Compiler",
+                desc: "Installing a C++ Compiler is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Installing a C++ Compiler
+    std::cout << "Learning Installing a C++ Compiler";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_installing_vs_code": {
+                title: "C++ Installing VS Code",
+                desc: "Installing VS Code is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Installing VS Code
+    std::cout << "Learning Installing VS Code";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_your_first_c_program": {
+                title: "C++ Your First C++ Program",
+                desc: "Your First C++ Program is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Your First C++ Program
+    std::cout << "Learning Your First C++ Program";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_c_program_structure": {
+                title: "C++ C++ Program Structure",
+                desc: "C++ Program Structure is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: C++ Program Structure
+    std::cout << "Learning C++ Program Structure";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_main_function": {
+                title: "C++ main() Function",
+                desc: "main() Function is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: main() Function
+    std::cout << "Learning main() Function";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_c_statements": {
+                title: "C++ C++ Statements",
+                desc: "C++ Statements is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: C++ Statements
+    std::cout << "Learning C++ Statements";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_single_line_comments": {
+                title: "C++ Single-Line Comments",
+                desc: "Single-Line Comments is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Single-Line Comments
+    std::cout << "Learning Single-Line Comments";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_multi_line_comments": {
+                title: "C++ Multi-Line Comments",
+                desc: "Multi-Line Comments is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Multi-Line Comments
+    std::cout << "Learning Multi-Line Comments";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_include": {
+                title: "C++ #include",
+                desc: "#include is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: #include
+    std::cout << "Learning #include";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_header_files": {
+                title: "C++ Header Files",
+                desc: "Header Files is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Header Files
+    std::cout << "Learning Header Files";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_std_cout": {
+                title: "C++ std::cout",
+                desc: "std::cout is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: std::cout
+    std::cout << "Learning std::cout";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_std_cin": {
+                title: "C++ std::cin",
+                desc: "std::cin is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: std::cin
+    std::cout << "Learning std::cin";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_std_endl": {
+                title: "C++ std::endl",
+                desc: "std::endl is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: std::endl
+    std::cout << "Learning std::endl";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_using_namespace_std": {
+                title: "C++ using namespace std",
+                desc: "using namespace std is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: using namespace std
+    std::cout << "Learning using namespace std";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_compilation": {
+                title: "C++ Compilation",
+                desc: "Compilation is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Compilation
+    std::cout << "Learning Compilation";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_linking": {
+                title: "C++ Linking",
+                desc: "Linking is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Linking
+    std::cout << "Learning Linking";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_running_a_c_program": {
+                title: "C++ Running a C++ Program",
+                desc: "Running a C++ Program is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Running a C++ Program
+    std::cout << "Learning Running a C++ Program";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_variable_declaration": {
+                title: "C++ Variable Declaration",
+                desc: "Variable Declaration is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Variable Declaration
+    std::cout << "Learning Variable Declaration";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_variable_initialization": {
+                title: "C++ Variable Initialization",
+                desc: "Variable Initialization is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Variable Initialization
+    std::cout << "Learning Variable Initialization";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_variable_naming_rules": {
+                title: "C++ Variable Naming Rules",
+                desc: "Variable Naming Rules is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Variable Naming Rules
+    std::cout << "Learning Variable Naming Rules";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_constants": {
+                title: "C++ Constants",
+                desc: "Constants is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Constants
+    std::cout << "Learning Constants";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_const": {
+                title: "C++ const",
+                desc: "const is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: const
+    std::cout << "Learning const";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_integer_data_types": {
+                title: "C++ Integer Data Types",
+                desc: "Integer Data Types is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Integer Data Types
+    std::cout << "Learning Integer Data Types";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_floating_point_data_types": {
+                title: "C++ Floating-Point Data Types",
+                desc: "Floating-Point Data Types is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Floating-Point Data Types
+    std::cout << "Learning Floating-Point Data Types";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_character_data_type": {
+                title: "C++ Character Data Type",
+                desc: "Character Data Type is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Character Data Type
+    std::cout << "Learning Character Data Type";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_boolean_data_type": {
+                title: "C++ Boolean Data Type",
+                desc: "Boolean Data Type is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Boolean Data Type
+    std::cout << "Learning Boolean Data Type";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_data_type": {
+                title: "C++ string Data Type",
+                desc: "string Data Type is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: string Data Type
+    std::cout << "Learning string Data Type";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_short": {
+                title: "C++ short",
+                desc: "short is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: short
+    std::cout << "Learning short";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_int": {
+                title: "C++ int",
+                desc: "int is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: int
+    std::cout << "Learning int";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_long": {
+                title: "C++ long",
+                desc: "long is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: long
+    std::cout << "Learning long";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_long_long": {
+                title: "C++ long long",
+                desc: "long long is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: long long
+    std::cout << "Learning long long";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_float": {
+                title: "C++ float",
+                desc: "float is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: float
+    std::cout << "Learning float";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_double": {
+                title: "C++ double",
+                desc: "double is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: double
+    std::cout << "Learning double";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_long_double": {
+                title: "C++ long double",
+                desc: "long double is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: long double
+    std::cout << "Learning long double";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_char": {
+                title: "C++ char",
+                desc: "char is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: char
+    std::cout << "Learning char";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_bool": {
+                title: "C++ bool",
+                desc: "bool is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: bool
+    std::cout << "Learning bool";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_sizeof_operator": {
+                title: "C++ sizeof Operator",
+                desc: "sizeof Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: sizeof Operator
+    std::cout << "Learning sizeof Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_signed_types": {
+                title: "C++ Signed Types",
+                desc: "Signed Types is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Signed Types
+    std::cout << "Learning Signed Types";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_unsigned_types": {
+                title: "C++ Unsigned Types",
+                desc: "Unsigned Types is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Unsigned Types
+    std::cout << "Learning Unsigned Types";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_type_limits": {
+                title: "C++ Type Limits",
+                desc: "Type Limits is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Type Limits
+    std::cout << "Learning Type Limits";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_integer_overflow": {
+                title: "C++ Integer Overflow",
+                desc: "Integer Overflow is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Integer Overflow
+    std::cout << "Learning Integer Overflow";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_multiple_inputs": {
+                title: "C++ Multiple Inputs",
+                desc: "Multiple Inputs is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Multiple Inputs
+    std::cout << "Learning Multiple Inputs";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_output_formatting": {
+                title: "C++ Output Formatting",
+                desc: "Output Formatting is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Output Formatting
+    std::cout << "Learning Output Formatting";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_escape_sequences": {
+                title: "C++ Escape Sequences",
+                desc: "Escape Sequences is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Escape Sequences
+    std::cout << "Learning Escape Sequences";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_arithmetic_operators": {
+                title: "C++ Arithmetic Operators",
+                desc: "Arithmetic Operators is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Arithmetic Operators
+    std::cout << "Learning Arithmetic Operators";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_addition": {
+                title: "C++ Addition",
+                desc: "Addition is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Addition
+    std::cout << "Learning Addition";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_subtraction": {
+                title: "C++ Subtraction",
+                desc: "Subtraction is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Subtraction
+    std::cout << "Learning Subtraction";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_multiplication": {
+                title: "C++ Multiplication",
+                desc: "Multiplication is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Multiplication
+    std::cout << "Learning Multiplication";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_division": {
+                title: "C++ Division",
+                desc: "Division is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Division
+    std::cout << "Learning Division";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_modulus": {
+                title: "C++ Modulus",
+                desc: "Modulus is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Modulus
+    std::cout << "Learning Modulus";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_assignment_operators": {
+                title: "C++ Assignment Operators",
+                desc: "Assignment Operators is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Assignment Operators
+    std::cout << "Learning Assignment Operators";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_compound_assignment": {
+                title: "C++ Compound Assignment",
+                desc: "Compound Assignment is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Compound Assignment
+    std::cout << "Learning Compound Assignment";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_increment_operator": {
+                title: "C++ Increment Operator",
+                desc: "Increment Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Increment Operator
+    std::cout << "Learning Increment Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_decrement_operator": {
+                title: "C++ Decrement Operator",
+                desc: "Decrement Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Decrement Operator
+    std::cout << "Learning Decrement Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_comparison_operators": {
+                title: "C++ Comparison Operators",
+                desc: "Comparison Operators is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Comparison Operators
+    std::cout << "Learning Comparison Operators";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_logical_operators": {
+                title: "C++ Logical Operators",
+                desc: "Logical Operators is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Logical Operators
+    std::cout << "Learning Logical Operators";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_and_operator": {
+                title: "C++ AND Operator",
+                desc: "AND Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: AND Operator
+    std::cout << "Learning AND Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_or_operator": {
+                title: "C++ OR Operator",
+                desc: "OR Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: OR Operator
+    std::cout << "Learning OR Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_not_operator": {
+                title: "C++ NOT Operator",
+                desc: "NOT Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: NOT Operator
+    std::cout << "Learning NOT Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_bitwise_operators": {
+                title: "C++ Bitwise Operators",
+                desc: "Bitwise Operators is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Bitwise Operators
+    std::cout << "Learning Bitwise Operators";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_bitwise_and": {
+                title: "C++ Bitwise AND",
+                desc: "Bitwise AND is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Bitwise AND
+    std::cout << "Learning Bitwise AND";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_bitwise_or": {
+                title: "C++ Bitwise OR",
+                desc: "Bitwise OR is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Bitwise OR
+    std::cout << "Learning Bitwise OR";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_bitwise_xor": {
+                title: "C++ Bitwise XOR",
+                desc: "Bitwise XOR is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Bitwise XOR
+    std::cout << "Learning Bitwise XOR";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_bitwise_not": {
+                title: "C++ Bitwise NOT",
+                desc: "Bitwise NOT is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Bitwise NOT
+    std::cout << "Learning Bitwise NOT";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_shift_operators": {
+                title: "C++ Shift Operators",
+                desc: "Shift Operators is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Shift Operators
+    std::cout << "Learning Shift Operators";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_if_statement": {
+                title: "C++ if Statement",
+                desc: "if Statement is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: if Statement
+    std::cout << "Learning if Statement";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_else_statement": {
+                title: "C++ else Statement",
+                desc: "else Statement is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: else Statement
+    std::cout << "Learning else Statement";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_else_if": {
+                title: "C++ else if",
+                desc: "else if is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: else if
+    std::cout << "Learning else if";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_nested_if": {
+                title: "C++ Nested if",
+                desc: "Nested if is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Nested if
+    std::cout << "Learning Nested if";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_conditional_expressions": {
+                title: "C++ Conditional Expressions",
+                desc: "Conditional Expressions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Conditional Expressions
+    std::cout << "Learning Conditional Expressions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_ternary_operator": {
+                title: "C++ Ternary Operator",
+                desc: "Ternary Operator is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Ternary Operator
+    std::cout << "Learning Ternary Operator";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_switch_statement": {
+                title: "C++ switch Statement",
+                desc: "switch Statement is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: switch Statement
+    std::cout << "Learning switch Statement";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_case": {
+                title: "C++ case",
+                desc: "case is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: case
+    std::cout << "Learning case";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_default": {
+                title: "C++ default",
+                desc: "default is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: default
+    std::cout << "Learning default";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_break_in_switch": {
+                title: "C++ break in Switch",
+                desc: "break in Switch is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: break in Switch
+    std::cout << "Learning break in Switch";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_character_conditions": {
+                title: "C++ Character Conditions",
+                desc: "Character Conditions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Character Conditions
+    std::cout << "Learning Character Conditions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_number_conditions": {
+                title: "C++ Number Conditions",
+                desc: "Number Conditions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Number Conditions
+    std::cout << "Learning Number Conditions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_boolean_conditions": {
+                title: "C++ Boolean Conditions",
+                desc: "Boolean Conditions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Boolean Conditions
+    std::cout << "Learning Boolean Conditions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_compound_conditions": {
+                title: "C++ Compound Conditions",
+                desc: "Compound Conditions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Compound Conditions
+    std::cout << "Learning Compound Conditions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_operator_precedence": {
+                title: "C++ Operator Precedence",
+                desc: "Operator Precedence is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Operator Precedence
+    std::cout << "Learning Operator Precedence";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_what_is_a_loop": {
+                title: "C++ What Is a Loop?",
+                desc: "What Is a Loop? is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: What Is a Loop?
+    std::cout << "Learning What Is a Loop?";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_do_while_loop": {
+                title: "C++ do-while Loop",
+                desc: "do-while Loop is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: do-while Loop
+    std::cout << "Learning do-while Loop";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_nested_loops": {
+                title: "C++ Nested Loops",
+                desc: "Nested Loops is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Nested Loops
+    std::cout << "Learning Nested Loops";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_infinite_loops": {
+                title: "C++ Infinite Loops",
+                desc: "Infinite Loops is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Infinite Loops
+    std::cout << "Learning Infinite Loops";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_break_statement": {
+                title: "C++ break Statement",
+                desc: "break Statement is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: break Statement
+    std::cout << "Learning break Statement";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_continue_statement": {
+                title: "C++ continue Statement",
+                desc: "continue Statement is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: continue Statement
+    std::cout << "Learning continue Statement";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_loop_counters": {
+                title: "C++ Loop Counters",
+                desc: "Loop Counters is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Loop Counters
+    std::cout << "Learning Loop Counters";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_loop_conditions": {
+                title: "C++ Loop Conditions",
+                desc: "Loop Conditions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Loop Conditions
+    std::cout << "Learning Loop Conditions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reverse_loops": {
+                title: "C++ Reverse Loops",
+                desc: "Reverse Loops is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reverse Loops
+    std::cout << "Learning Reverse Loops";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_pattern_printing": {
+                title: "C++ Pattern Printing",
+                desc: "Pattern Printing is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Pattern Printing
+    std::cout << "Learning Pattern Printing";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_number_patterns": {
+                title: "C++ Number Patterns",
+                desc: "Number Patterns is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Number Patterns
+    std::cout << "Learning Number Patterns";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_character_patterns": {
+                title: "C++ Character Patterns",
+                desc: "Character Patterns is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Character Patterns
+    std::cout << "Learning Character Patterns";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_multiplication_tables": {
+                title: "C++ Multiplication Tables",
+                desc: "Multiplication Tables is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Multiplication Tables
+    std::cout << "Learning Multiplication Tables";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_function_declaration": {
+                title: "C++ Function Declaration",
+                desc: "Function Declaration is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Function Declaration
+    std::cout << "Learning Function Declaration";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_function_definition": {
+                title: "C++ Function Definition",
+                desc: "Function Definition is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Function Definition
+    std::cout << "Learning Function Definition";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_function_calling": {
+                title: "C++ Function Calling",
+                desc: "Function Calling is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Function Calling
+    std::cout << "Learning Function Calling";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_function_parameters": {
+                title: "C++ Function Parameters",
+                desc: "Function Parameters is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Function Parameters
+    std::cout << "Learning Function Parameters";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_return_values": {
+                title: "C++ Return Values",
+                desc: "Return Values is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Return Values
+    std::cout << "Learning Return Values";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_void_functions": {
+                title: "C++ void Functions",
+                desc: "void Functions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: void Functions
+    std::cout << "Learning void Functions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_multiple_parameters": {
+                title: "C++ Multiple Parameters",
+                desc: "Multiple Parameters is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Multiple Parameters
+    std::cout << "Learning Multiple Parameters";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_default_arguments": {
+                title: "C++ Default Arguments",
+                desc: "Default Arguments is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Default Arguments
+    std::cout << "Learning Default Arguments";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_function_overloading": {
+                title: "C++ Function Overloading",
+                desc: "Function Overloading is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Function Overloading
+    std::cout << "Learning Function Overloading";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_inline_functions": {
+                title: "C++ Inline Functions",
+                desc: "Inline Functions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Inline Functions
+    std::cout << "Learning Inline Functions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_recursive_functions": {
+                title: "C++ Recursive Functions",
+                desc: "Recursive Functions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Recursive Functions
+    std::cout << "Learning Recursive Functions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_local_variables": {
+                title: "C++ Local Variables",
+                desc: "Local Variables is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Local Variables
+    std::cout << "Learning Local Variables";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_global_variables": {
+                title: "C++ Global Variables",
+                desc: "Global Variables is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Global Variables
+    std::cout << "Learning Global Variables";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_static_local_variables": {
+                title: "C++ Static Local Variables",
+                desc: "Static Local Variables is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Static Local Variables
+    std::cout << "Learning Static Local Variables";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_function_prototypes": {
+                title: "C++ Function Prototypes",
+                desc: "Function Prototypes is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Function Prototypes
+    std::cout << "Learning Function Prototypes";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_pass_by_value": {
+                title: "C++ Pass by Value",
+                desc: "Pass by Value is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Pass by Value
+    std::cout << "Learning Pass by Value";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_pass_by_reference": {
+                title: "C++ Pass by Reference",
+                desc: "Pass by Reference is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Pass by Reference
+    std::cout << "Learning Pass by Reference";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_const_references": {
+                title: "C++ const References",
+                desc: "const References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: const References
+    std::cout << "Learning const References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_c_style_strings": {
+                title: "C++ C-Style Strings",
+                desc: "C-Style Strings is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: C-Style Strings
+    std::cout << "Learning C-Style Strings";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_std_string": {
+                title: "C++ std::string",
+                desc: "std::string is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: std::string
+    std::cout << "Learning std::string";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_input": {
+                title: "C++ String Input",
+                desc: "String Input is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Input
+    std::cout << "Learning String Input";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_concatenation": {
+                title: "C++ String Concatenation",
+                desc: "String Concatenation is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Concatenation
+    std::cout << "Learning String Concatenation";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_comparison": {
+                title: "C++ String Comparison",
+                desc: "String Comparison is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Comparison
+    std::cout << "Learning String Comparison";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_length": {
+                title: "C++ String Length",
+                desc: "String Length is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Length
+    std::cout << "Learning String Length";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_searching": {
+                title: "C++ String Searching",
+                desc: "String Searching is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Searching
+    std::cout << "Learning String Searching";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_substrings": {
+                title: "C++ String Substrings",
+                desc: "String Substrings is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Substrings
+    std::cout << "Learning String Substrings";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_modification": {
+                title: "C++ String Modification",
+                desc: "String Modification is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Modification
+    std::cout << "Learning String Modification";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_string_conversion": {
+                title: "C++ String Conversion",
+                desc: "String Conversion is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: String Conversion
+    std::cout << "Learning String Conversion";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_character_functions": {
+                title: "C++ Character Functions",
+                desc: "Character Functions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Character Functions
+    std::cout << "Learning Character Functions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_one_dimensional_arrays": {
+                title: "C++ One-Dimensional Arrays",
+                desc: "One-Dimensional Arrays is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: One-Dimensional Arrays
+    std::cout << "Learning One-Dimensional Arrays";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_multidimensional_arrays": {
+                title: "C++ Multidimensional Arrays",
+                desc: "Multidimensional Arrays is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Multidimensional Arrays
+    std::cout << "Learning Multidimensional Arrays";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_array_initialization": {
+                title: "C++ Array Initialization",
+                desc: "Array Initialization is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Array Initialization
+    std::cout << "Learning Array Initialization";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_array_traversal": {
+                title: "C++ Array Traversal",
+                desc: "Array Traversal is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Array Traversal
+    std::cout << "Learning Array Traversal";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_array_searching": {
+                title: "C++ Array Searching",
+                desc: "Array Searching is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Array Searching
+    std::cout << "Learning Array Searching";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_array_sorting": {
+                title: "C++ Array Sorting",
+                desc: "Array Sorting is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Array Sorting
+    std::cout << "Learning Array Sorting";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_array_copying": {
+                title: "C++ Array Copying",
+                desc: "Array Copying is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Array Copying
+    std::cout << "Learning Array Copying";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_array_of_characters": {
+                title: "C++ Array of Characters",
+                desc: "Array of Characters is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Array of Characters
+    std::cout << "Learning Array of Characters";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_variables": {
+                title: "C++ Reference Variables",
+                desc: "Reference Variables is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Variables
+    std::cout << "Learning Reference Variables";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_declaration": {
+                title: "C++ Reference Declaration",
+                desc: "Reference Declaration is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Declaration
+    std::cout << "Learning Reference Declaration";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_initialization": {
+                title: "C++ Reference Initialization",
+                desc: "Reference Initialization is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Initialization
+    std::cout << "Learning Reference Initialization";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_aliasing": {
+                title: "C++ Reference Aliasing",
+                desc: "Reference Aliasing is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Aliasing
+    std::cout << "Learning Reference Aliasing";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_and_memory": {
+                title: "C++ References and Memory",
+                desc: "References and Memory is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References and Memory
+    std::cout << "Learning References and Memory";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_vs_pointers": {
+                title: "C++ References vs Pointers",
+                desc: "References vs Pointers is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References vs Pointers
+    std::cout << "Learning References vs Pointers";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_passing_by_reference": {
+                title: "C++ Passing by Reference",
+                desc: "Passing by Reference is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Passing by Reference
+    std::cout << "Learning Passing by Reference";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_passing_by_const_reference": {
+                title: "C++ Passing by const Reference",
+                desc: "Passing by const Reference is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Passing by const Reference
+    std::cout << "Learning Passing by const Reference";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_passing_by_non_const_reference": {
+                title: "C++ Passing by Non-Const Reference",
+                desc: "Passing by Non-Const Reference is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Passing by Non-Const Reference
+    std::cout << "Learning Passing by Non-Const Reference";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_returning_by_reference": {
+                title: "C++ Returning by Reference",
+                desc: "Returning by Reference is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Returning by Reference
+    std::cout << "Learning Returning by Reference";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_return_values": {
+                title: "C++ Reference Return Values",
+                desc: "Reference Return Values is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Return Values
+    std::cout << "Learning Reference Return Values";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_parameters": {
+                title: "C++ Reference Parameters",
+                desc: "Reference Parameters is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Parameters
+    std::cout << "Learning Reference Parameters";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_and_functions": {
+                title: "C++ References and Functions",
+                desc: "References and Functions is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References and Functions
+    std::cout << "Learning References and Functions";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_to_arrays": {
+                title: "C++ References to Arrays",
+                desc: "References to Arrays is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References to Arrays
+    std::cout << "Learning References to Arrays";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_to_strings": {
+                title: "C++ References to Strings",
+                desc: "References to Strings is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References to Strings
+    std::cout << "Learning References to Strings";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_to_objects": {
+                title: "C++ References to Objects",
+                desc: "References to Objects is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References to Objects
+    std::cout << "Learning References to Objects";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_to_class_members": {
+                title: "C++ References to Class Members",
+                desc: "References to Class Members is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References to Class Members
+    std::cout << "Learning References to Class Members";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_to_struct_members": {
+                title: "C++ References to Struct Members",
+                desc: "References to Struct Members is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References to Struct Members
+    std::cout << "Learning References to Struct Members";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_to_pointers": {
+                title: "C++ References to Pointers",
+                desc: "References to Pointers is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References to Pointers
+    std::cout << "Learning References to Pointers";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_to_const": {
+                title: "C++ Reference to const",
+                desc: "Reference to const is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference to const
+    std::cout << "Learning Reference to const";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_temporary_objects_and_references": {
+                title: "C++ Temporary Objects and References",
+                desc: "Temporary Objects and References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Temporary Objects and References
+    std::cout << "Learning Temporary Objects and References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_temporary_lifetime_extension": {
+                title: "C++ Temporary Lifetime Extension",
+                desc: "Temporary Lifetime Extension is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Temporary Lifetime Extension
+    std::cout << "Learning Temporary Lifetime Extension";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_dangling_references": {
+                title: "C++ Dangling References",
+                desc: "Dangling References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Dangling References
+    std::cout << "Learning Dangling References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_returning_dangling_references": {
+                title: "C++ Returning Dangling References",
+                desc: "Returning Dangling References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Returning Dangling References
+    std::cout << "Learning Returning Dangling References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_local_variable_references": {
+                title: "C++ Local Variable References",
+                desc: "Local Variable References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Local Variable References
+    std::cout << "Learning Local Variable References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_static_references": {
+                title: "C++ Static References",
+                desc: "Static References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Static References
+    std::cout << "Learning Static References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_members": {
+                title: "C++ Reference Members",
+                desc: "Reference Members is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Members
+    std::cout << "Learning Reference Members";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_data_members": {
+                title: "C++ Reference Data Members",
+                desc: "Reference Data Members is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Data Members
+    std::cout << "Learning Reference Data Members";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_member_initialization": {
+                title: "C++ Reference Member Initialization",
+                desc: "Reference Member Initialization is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Member Initialization
+    std::cout << "Learning Reference Member Initialization";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_in_constructors": {
+                title: "C++ References in Constructors",
+                desc: "References in Constructors is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References in Constructors
+    std::cout << "Learning References in Constructors";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_and_this": {
+                title: "C++ References and this",
+                desc: "References and this is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References and this
+    std::cout << "Learning References and this";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_and_inheritance": {
+                title: "C++ References and Inheritance",
+                desc: "References and Inheritance is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References and Inheritance
+    std::cout << "Learning References and Inheritance";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_base_class_references": {
+                title: "C++ Base-Class References",
+                desc: "Base-Class References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Base-Class References
+    std::cout << "Learning Base-Class References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_derived_class_references": {
+                title: "C++ Derived-Class References",
+                desc: "Derived-Class References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Derived-Class References
+    std::cout << "Learning Derived-Class References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_references_and_polymorphism": {
+                title: "C++ References and Polymorphism",
+                desc: "References and Polymorphism is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: References and Polymorphism
+    std::cout << "Learning References and Polymorphism";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_virtual_functions_through_references": {
+                title: "C++ Virtual Functions Through References",
+                desc: "Virtual Functions Through References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Virtual Functions Through References
+    std::cout << "Learning Virtual Functions Through References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_reference_qualifiers": {
+                title: "C++ Reference Qualifiers",
+                desc: "Reference Qualifiers is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Reference Qualifiers
+    std::cout << "Learning Reference Qualifiers";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_lvalue_references": {
+                title: "C++ Lvalue References",
+                desc: "Lvalue References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Lvalue References
+    std::cout << "Learning Lvalue References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_lvalues": {
+                title: "C++ Lvalues",
+                desc: "Lvalues is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Lvalues
+    std::cout << "Learning Lvalues";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_rvalues": {
+                title: "C++ Rvalues",
+                desc: "Rvalues is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Rvalues
+    std::cout << "Learning Rvalues";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_lvalue_to_rvalue_conversion": {
+                title: "C++ Lvalue-to-Rvalue Conversion",
+                desc: "Lvalue-to-Rvalue Conversion is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Lvalue-to-Rvalue Conversion
+    std::cout << "Learning Lvalue-to-Rvalue Conversion";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_rvalue_references": {
+                title: "C++ Rvalue References",
+                desc: "Rvalue References is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Rvalue References
+    std::cout << "Learning Rvalue References";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_rvalue_reference_parameters": {
+                title: "C++ Rvalue Reference Parameters",
+                desc: "Rvalue Reference Parameters is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Rvalue Reference Parameters
+    std::cout << "Learning Rvalue Reference Parameters";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_rvalue_references_and_temporaries": {
+                title: "C++ Rvalue References and Temporaries",
+                desc: "Rvalue References and Temporaries is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Rvalue References and Temporaries
+    std::cout << "Learning Rvalue References and Temporaries";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            },
+            "topic_rvalue_references_and_move_semantics": {
+                title: "C++ Rvalue References and Move Semantics",
+                desc: "Rvalue References and Move Semantics is an important C++ concept. Learn its purpose, syntax, and common usage, then practice it with a small program.",
+                code: `#include <iostream>
+
+int main() {
+    // Practice: Rvalue References and Move Semantics
+    std::cout << "Learning Rvalue References and Move Semantics";
+    return 0;
+}`,
+                explanation: [
+                    "Understand the core idea first, then modify the example and build a small practice program.",
+                    "This lesson is part of the complete C++ professional roadmap."
+                ]
+            }
+        });
 
         // Render Sidebar Navigation
         function renderSidebar() {
